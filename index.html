@@ -830,7 +830,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const progress=document.getElementById('introProgressBar');
     if(!intro || !video || !skip) return;
 
-    const introSeenKey='wellconIntroSeenOnceV1';
+    const introSeenKey='wellconIntroSeenOnceV2';
     const hasSeenIntro=()=>{
       try{return localStorage.getItem(introSeenKey)==='1';}
       catch(_){return false;}
