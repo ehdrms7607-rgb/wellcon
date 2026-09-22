@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>디자인형울타리 제품 | WELLCON</title>
+<meta content="웰콘 디자인형울타리 주요제품" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style id="wellcon-concept-b-global">
+:root{--wb-dark:#0b0d0f;--wb-paper:#f2f0eb;--wb-lime:#d8ff3e;--wb-line:#c6c3bc;--wb-muted:#70757a}
+html{scroll-behavior:smooth}
+body{background:var(--wb-paper)!important;color:#111}
+.site-header,header.site-header{background:rgba(11,13,15,.94)!important;border-bottom:1px solid rgba(255,255,255,.12)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.site-header a,.site-header button,.site-header .logo,.site-header nav a{color:#f5f4ef!important}
+.site-header img{filter:none}
+.site-header nav a{position:relative}
+.site-header nav a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--wb-lime);transition:.3s}
+.site-header nav a:hover:after{width:100%}
+main:not(.concept-b){background:var(--wb-paper)}
+.page-hero,.sub-hero,.catalog-hero,.safety-hero{
+  background:var(--wb-dark)!important;color:#f5f4ef!important;
+  padding-top:150px!important;padding-bottom:85px!important;border-radius:0!important
+}
+.page-hero h1,.sub-hero h1,.catalog-hero h1,.safety-hero h1{font-size:clamp(42px,6vw,78px)!important;letter-spacing:-.055em!important;line-height:1!important}
+.page-hero p,.sub-hero p,.catalog-hero p,.safety-hero p{color:#9da4a8!important}
+.catalog-toolbar,.product-toolbar,.filter-bar{
+  background:#e8e6e0!important;border:1px solid #c8c5bd!important;border-radius:0!important;
+  box-shadow:none!important
+}
+.catalog-card,.product-card{
+  background:transparent!important;border:0!important;border-top:1px solid #bdbab3!important;border-radius:0!important;
+  box-shadow:none!important;transition:transform .35s ease,background .35s ease!important
+}
+.catalog-card:hover,.product-card:hover{transform:translateY(-7px);background:rgba(255,255,255,.45)!important}
+.catalog-card img,.product-card img{border-radius:0!important;transition:transform .55s cubic-bezier(.2,.7,.2,1)!important}
+.catalog-card:hover img,.product-card:hover img{transform:scale(1.025)}
+.catalog-card h3,.product-card h3{font-weight:700!important;letter-spacing:-.025em!important}
+.product-id-number,.product-id-number span,.catalog-card p{color:#6f7477!important}
+button,.btn,.search-btn,.catalog-toolbar button{
+  border-radius:0!important;box-shadow:none!important;transition:.3s!important
+}
+.btn:hover,.search-btn:hover,button:hover{transform:translateY(-2px)}
+footer,.site-footer{background:#0b0d0f!important;color:#aaa!important;border-top:1px solid #272b2f!important}
+footer a,.site-footer a{color:#ddd!important}
+section{scroll-margin-top:90px}
+.wb-reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.wb-reveal.wb-show{opacity:1;transform:none}
+@media(max-width:760px){
+ .page-hero,.sub-hero,.catalog-hero,.safety-hero{padding-top:125px!important;padding-bottom:65px!important}
+}
+@media(prefers-reduced-motion:reduce){.wb-reveal{opacity:1;transform:none;transition:none}}
+</style>
+<style id="wellcon-white-footer">
+footer,.site-footer{
+  background:#fff !important;
+  color:#555 !important;
+  border-top:1px solid #e5e5e5 !important;
+}
+footer a,.site-footer a{
+  color:#333 !important;
+}
+</style>
+<style id="wellcon-red-nav-hover">
+/* 상단 메뉴 마우스 오버 포인트: 녹색 → 빨간색 */
+.site-header nav a::after,
+.site-header nav a:after{
+  background:#e60012 !important;
+}
+.site-header nav a:hover,
+.site-header nav a:focus{
+  color:#e60012 !important;
+}
+</style>
+<style id="g2b-all-products-style">
+.g2b-product-link{cursor:pointer}
+.g2b-product-link:focus{outline:2px solid #e60012;outline-offset:4px}
+.g2b-product-link .product-id-number::after{
+  content:"";
+  color:#e60012;
+  font-size:11px;
+  font-weight:700;
+  white-space:nowrap;
+}
+</style>
+<style id="g2b-card-note-style">
+.g2b-card-note{
+ margin-top:12px;padding-top:10px;border-top:1px solid rgba(0,0,0,.12);
+ font-size:11px;line-height:1.55;color:#666;
+}
+.g2b-card-note strong{color:#e60012;margin-right:3px}
+.g2b-card-note b{color:#111;font-weight:800}
+</style>
+<style id="product-dropdown-refined-style">
+/* 제품소개 드롭다운 - 기존 상단바 디자인에 맞춘 정돈된 스타일 */
+.desktop-nav .product-menu-wrap,
+.desktop-nav .project-menu-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  height:100%;
+}
+.desktop-nav .product-menu-wrap > a,
+.desktop-nav .project-menu-wrap > a{
+  display:flex;
+  align-items:center;
+  height:100%;
+  padding:0;
+}
+
+/* 메뉴 간 이질감 없이, 상단바 바로 아래 이어지는 플로팅 패널 */
+.desktop-nav .product-submenu,
+.desktop-nav .project-submenu{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:50%;
+  transform:translateX(-50%) translateY(8px);
+  min-width:178px;
+  padding:6px;
+  background:rgba(20,20,20,.96);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:8px;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility .18s ease;
+  z-index:99999;
+}
+
+/* 마우스가 상단 메뉴에서 하위메뉴로 자연스럽게 이동하도록 투명 브리지 */
+.desktop-nav .product-menu-wrap::after,
+.desktop-nav .project-menu-wrap::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:-16px;
+  right:-16px;
+  height:16px;
+}
+
+.desktop-nav .product-menu-wrap:hover .product-submenu,
+.desktop-nav .project-menu-wrap:hover .project-submenu,
+.desktop-nav .product-menu-wrap:focus-within .product-submenu,
+.desktop-nav .project-menu-wrap:focus-within .project-submenu{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+
+.desktop-nav .product-submenu a,
+.desktop-nav .project-submenu a{
+  display:block !important;
+  height:auto !important;
+  padding:11px 14px !important;
+  margin:0 !important;
+  color:rgba(255,255,255,.86) !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:5px;
+  font-size:13px;
+  font-weight:500;
+  line-height:1.2;
+  letter-spacing:-.02em;
+  text-align:left;
+  white-space:nowrap;
+  transition:background .16s ease,color .16s ease,transform .16s ease;
+}
+.desktop-nav .product-submenu a + a,
+.desktop-nav .project-submenu a + a{
+  margin-top:2px !important;
+}
+.desktop-nav .product-submenu a::before,
+.desktop-nav .product-submenu a::after,
+.desktop-nav .project-submenu a::before,
+.desktop-nav .project-submenu a::after{
+  display:none !important;
+}
+.desktop-nav .product-submenu a:hover,
+.desktop-nav .project-submenu a:hover,
+.desktop-nav .product-submenu a:focus,
+.desktop-nav .project-submenu a:focus{
+  color:#fff !important;
+  background:rgba(255,255,255,.08) !important;
+  transform:translateX(2px);
+}
+.desktop-nav .product-submenu a:hover::marker,
+.desktop-nav .project-submenu a:hover::marker{
+  color:#e60012;
+}
+
+/* 기존 빨간 hover 포인트와 연결 */
+.desktop-nav .product-submenu a:hover,
+.desktop-nav .project-submenu a:hover{
+  box-shadow:inset 2px 0 0 #e60012;
+}
+
+/* 모바일에서는 기존 메뉴를 방해하지 않도록 드롭다운 숨김 */
+@media (max-width:900px){
+  .desktop-nav .product-menu-wrap .product-submenu,
+  .desktop-nav .project-menu-wrap .project-submenu{
+    display:none !important;
+  }
+}
+</style>
+<style id="product-page-entry-animation">
+@keyframes productPageHeroIn{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes productPageCardIn{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+main.product-page-enter > .product-list-hero:first-child{
+  animation:productPageHeroIn .72s cubic-bezier(.2,.7,.2,1) both;
+}
+main.product-page-enter .catalog-card,
+main.product-page-enter .product-card{
+  opacity:0;
+  transform:translateY(28px);
+}
+main.product-page-enter.product-page-ready .catalog-card,
+main.product-page-enter.product-page-ready .product-card{
+  animation:productPageCardIn .68s cubic-bezier(.2,.7,.2,1) both;
+}
+/* 기존 스크롤 reveal과 겹쳐 페이지마다 다르게 보이던 현상을 제거 */
+main.product-page-enter .wb-reveal{
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+}
+@media(max-width:768px){
+  main.product-page-enter > .product-list-hero:first-child{animation-duration:.55s}
+  main.product-page-enter .catalog-card,
+  main.product-page-enter .product-card{opacity:1!important;transform:none!important}
+  main.product-page-enter.product-page-ready .catalog-card,
+  main.product-page-enter.product-page-ready .product-card{animation:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  main.product-page-enter > .product-list-hero:first-child,
+  main.product-page-enter .catalog-card,
+  main.product-page-enter .product-card{animation:none!important;opacity:1!important;transform:none!important}
+}
+</style>
+<style id="wellcon-page-product-search-style">
+.page-product-search{display:flex;gap:10px;align-items:center;margin:0 0 28px;max-width:620px}
+.page-product-search input{flex:1;min-width:0;height:48px;padding:0 16px;border:1px solid rgba(16,42,67,.2);border-radius:8px;background:#fff;font:inherit;color:#102a43;outline:none}
+.page-product-search input:focus{border-color:#102a43;box-shadow:0 0 0 3px rgba(16,42,67,.08)}
+.page-product-search button{height:48px;padding:0 22px;border:0;border-radius:8px;cursor:pointer}
+.page-product-search-status{margin:-16px 0 24px;color:#66788a;font-size:14px}
+@media(max-width:640px){.page-product-search{gap:8px}.page-product-search button{padding:0 16px}}
+</style>
+<style id="design-fence-uniform-image-size">
+/* 디자인형울타리 제품 이미지 표시영역 통일 */
+.catalog-grid .catalog-card img{width:100%!important;height:260px!important;object-fit:contain!important;object-position:center!important;background:#fff!important;display:block!important;}
+@media(max-width:760px){.catalog-grid .catalog-card img{height:220px!important;}}
+</style>
+<style id="installation-case-modal-style">
+.catalog-card img{cursor:pointer}
+.install-case-modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:99999;display:none;align-items:center;justify-content:center;padding:24px}
+.install-case-modal.open{display:flex}
+.install-case-dialog{width:min(1000px,96vw);max-height:92vh;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.35);position:relative}
+.install-case-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid #e8e8e8}
+.install-case-head h2{font-size:20px;margin:0}.install-case-close{border:0;background:transparent;font-size:32px;line-height:1;cursor:pointer}
+.install-case-body{padding:20px}.install-case-stage{height:min(62vh,620px);background:#f4f5f7;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.install-case-stage img{width:100%;height:100%;object-fit:contain}.install-case-caption{text-align:center;margin:14px 0 0;font-weight:700}.install-case-note{text-align:center;color:#777;font-size:14px;margin:6px 0 0}
+@media(max-width:640px){.install-case-modal{padding:12px}.install-case-dialog{border-radius:12px}.install-case-head{padding:14px 16px}.install-case-stage{height:55vh}.install-case-body{padding:12px}}
+</style>
+<style id="product-id-click-hover-style">
+/* 식별번호 클릭 안내 + hover 효과 */
+.g2b-product-link .product-id-number{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 10px;border-radius:8px;
+  transition:transform .18s ease,background-color .18s ease,box-shadow .18s ease,color .18s ease;
+}
+.g2b-product-link .product-id-number::after{
+  content:"CLICK" !important;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:38px;height:19px;padding:0 6px;border-radius:999px;
+  background:#e60012;color:#fff !important;
+  font-size:9px !important;font-weight:800 !important;letter-spacing:.5px;
+  line-height:19px;white-space:nowrap;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.g2b-product-link .product-id-number:hover,
+.g2b-product-link .product-id-number:focus{
+  background:rgba(230,0,18,.07);color:#111 !important;
+  transform:translateY(-2px);
+  box-shadow:0 5px 14px rgba(0,0,0,.10);
+}
+.g2b-product-link .product-id-number:hover::after,
+.g2b-product-link .product-id-number:focus::after{
+  transform:scale(1.08);box-shadow:0 3px 9px rgba(230,0,18,.25);
+}
+</style>
+<link rel="stylesheet" href="apple-site.css">
+<link rel="stylesheet" href="wellcon-boundary.css">
+<link rel="stylesheet" href="header-final-fix.css?v=20260921-4">
+<script defer src="wellcon-boundary.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand brand-logo" href="index.html" aria-label="웰콘 홈"><img src="assets/wellcon-logo.png" alt="WELLCON 웰콘 로고"></a>
+  <nav class="desktop-nav" aria-label="주요 메뉴"><a href="company.html">회사소개</a><div class="product-menu-wrap">
+<a href="bridge-railing.html">제품소개</a>
+<div class="product-submenu" aria-label="제품소개 하위 메뉴">
+<a href="bridge-railing.html">알루미늄제교량난간</a>
+<a href="design-fence.html">디자인형울타리</a>
+<a href="aluminum-median-barrier.html">알루미늄제도로중앙분리대</a>
+<a href="lane-divider.html">차선분리대</a>
+<a href="bar-fence.html">창살형울타리</a>
+<a href="metal-other-fence.html">금속제기타울타리</a>
+</div>
+</div><div class="project-menu-wrap">
+<a href="projects.html">시공사례</a>
+<div class="project-submenu" aria-label="시공사례 하위 메뉴">
+<a href="projects.html">전체 시공사례</a>
+<a href="projects.html#y2026">2026</a>
+<a href="projects.html#y2025">2025</a>
+<a href="projects.html#y2024">2024</a>
+<a href="projects.html#y2023">2023</a>
+</div>
+</div><a href="technology.html">기술자료</a></nav>
+  <div class="header-actions"><a class="btn btn-primary header-cta" href="quote.html">견적문의 <span>→</span></a><button class="menu-btn" id="menuBtn" aria-label="모바일 메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="company.html">회사소개</a>
+      <div class="mobile-submenu-wrap">
+        <button class="mobile-submenu-toggle" type="button" aria-expanded="false">제품소개 <span>⌄</span></button>
+        <div class="mobile-submenu">
+          <a href="bridge-railing.html">알루미늄제교량난간</a>
+          <a href="design-fence.html">디자인형울타리</a>
+          <a href="aluminum-median-barrier.html">알루미늄제도로중앙분리대</a>
+          <a href="lane-divider.html">차선분리대</a>
+          <a href="bar-fence.html">창살형울타리</a>
+          <a href="metal-other-fence.html">금속제기타울타리</a>
+        </div>
+      </div>
+      <div class="mobile-submenu-wrap">
+        <button class="mobile-submenu-toggle" type="button" aria-expanded="false">시공사례 <span>⌄</span></button>
+        <div class="mobile-submenu">
+          <a href="projects.html">전체 시공사례</a>
+          <a href="projects.html#y2026">2026</a>
+          <a href="projects.html#y2025">2025</a>
+<a href="projects.html#y2024">2024</a>
+<a href="projects.html#y2023">2023</a>
+        </div>
+      </div>
+      <a href="technology.html">기술자료</a>
+      <a href="quote.html">견적문의</a>
+    </div>
+</header>
+<main>
+<section class="product-list-hero">
+<div class="container">
+<div class="breadcrumb">HOME / 안전경관사업 / 디자인형울타리</div>
+<p class="eyebrow">PRODUCT</p>
+<h1>디자인형울타리</h1>
+<p>디자인형울타리 주요제품을 확인할 수 있습니다.</p>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="catalog-grid"><article class="catalog-card"><img alt="HANDAID-2000" src="assets/design-fence-new-001.jpg"/><h3>HANDAID-2000</h3><p class="product-id-number">식별번호 <strong>26073272</strong></p></article><article class="catalog-card"><img alt="HANDAID-1500" src="assets/design-fence-new-002.jpg"/><h3>HANDAID-1500</h3><p class="product-id-number">식별번호 <strong>26073273</strong></p></article><article class="catalog-card"><img alt="HANDAID-01" src="assets/design-fence-new-003.jpg"/><h3>HANDAID-01</h3><p class="product-id-number">식별번호 <strong>23826915</strong></p></article><article class="catalog-card"><img alt="XFEN-01" src="assets/design-fence-new-004.jpg"/><h3>XFEN-01</h3><p class="product-id-number">식별번호 <strong>25777091</strong></p></article><article class="catalog-card"><img alt="WCF-002ROPE" src="assets/design-fence-new-005.jpg"/><h3>WCF-002ROPE</h3><p class="product-id-number">식별번호 <strong>24774069</strong></p></article><article class="catalog-card"><img alt="WCF-001ROPE" src="assets/design-fence-new-006.jpg"/><h3>WCF-001ROPE</h3><p class="product-id-number">식별번호 <strong>24774068</strong></p></article><article class="catalog-card"><img alt="WF-001" src="assets/design-fence-new-007.jpg"/><h3>WF-001</h3><p class="product-id-number">식별번호 <strong>24931675</strong></p></article><article class="catalog-card"><img alt="WCF-303" src="assets/design-fence-new-008.jpg"/><h3>WCF-303</h3><p class="product-id-number">식별번호 <strong>24149818</strong></p></article><article class="catalog-card"><img alt="WCF-110" src="assets/design-fence-new-009.jpg"/><h3>WCF-110</h3><p class="product-id-number">식별번호 <strong>23689195</strong></p></article><article class="catalog-card"><img alt="WCF-702" src="assets/design-fence-new-010.jpg"/><h3>WCF-702</h3><p class="product-id-number">식별번호 <strong>25672699</strong></p></article><article class="catalog-card"><img alt="WCF-5001" src="assets/design-fence-new-011.jpg"/><h3>WCF-5001</h3><p class="product-id-number">식별번호 <strong>24972763</strong></p></article><article class="catalog-card"><img alt="WCF-003" src="assets/design-fence-new-012.jpg"/><h3>WCF-003</h3><p class="product-id-number">식별번호 <strong>23203449</strong></p></article><article class="catalog-card"><img alt="WCF-056" src="assets/design-fence-new-013.jpg"/><h3>WCF-056</h3><p class="product-id-number">식별번호 <strong>23449963</strong></p></article><article class="catalog-card"><img alt="WCF-017" src="assets/design-fence-new-014.jpg"/><h3>WCF-017</h3><p class="product-id-number">식별번호 <strong>23209422</strong></p></article><article class="catalog-card"><img alt="XFEN-13" src="assets/design-fence-new-015.jpg"/><h3>XFEN-13</h3><p class="product-id-number">식별번호 <strong>26192218</strong></p></article><article class="catalog-card"><img alt="WCF-339" src="assets/design-fence-new-016.jpg"/><h3>WCF-339</h3><p class="product-id-number">식별번호 <strong>26103465</strong></p></article><article class="catalog-card"><img alt="WCF-01THIN" src="assets/design-fence-new-017.jpg"/><h3>WCF-01THIN</h3><p class="product-id-number">식별번호 <strong>25599009</strong></p></article><article class="catalog-card"><img alt="WCF-047" src="assets/design-fence-new-018.jpg"/><h3>WCF-047</h3><p class="product-id-number">식별번호 <strong>23348709</strong></p></article><article class="catalog-card"><img alt="WCF-248" src="assets/design-fence-new-019.jpg"/><h3>WCF-248</h3><p class="product-id-number">식별번호 <strong>26103466</strong></p></article><article class="catalog-card"><img alt="XFEN-11" src="assets/design-fence-new-020.jpg"/><h3>XFEN-11</h3><p class="product-id-number">식별번호 <strong>26192217</strong></p></article><article class="catalog-card"><img alt="WCF-1011" src="assets/design-fence-new-021.jpg"/><h3>WCF-1011</h3><p class="product-id-number">식별번호 <strong>26030132</strong></p></article><article class="catalog-card"><img alt="WCF-078" src="assets/design-fence-new-022.jpg"/><h3>WCF-078</h3><p class="product-id-number">식별번호 <strong>23633850</strong></p></article><article class="catalog-card"><img alt="WCF-1001" src="assets/design-fence-new-023.jpg"/><h3>WCF-1001</h3><p class="product-id-number">식별번호 <strong>26025667</strong></p></article><article class="catalog-card"><img alt="WCF-109SW" src="assets/design-fence-new-024.jpg"/><h3>WCF-109SW</h3><p class="product-id-number">식별번호 <strong>25419072</strong></p></article><article class="catalog-card"><img alt="WCF-007WF" src="assets/design-fence-new-025.jpg"/><h3>WCF-007WF</h3><p class="product-id-number">식별번호 <strong>26175091</strong></p></article><article class="catalog-card"><img alt="WCF-071" src="assets/design-fence-new-026.jpg"/><h3>WCF-071</h3><p class="product-id-number">식별번호 <strong>23562078</strong></p></article><article class="catalog-card"><img alt="WCF-1014" src="assets/design-fence-new-027.jpg"/><h3>WCF-1014</h3><p class="product-id-number">식별번호 <strong>26038447</strong></p></article><article class="catalog-card"><img alt="GP-007F" src="assets/design-fence-new-028.jpg"/><h3>GP-007F</h3><p class="product-id-number">식별번호 <strong>26156051</strong></p></article><article class="catalog-card"><img alt="WCF-315" src="assets/design-fence-new-029.jpg"/><h3>WCF-315</h3><p class="product-id-number">식별번호 <strong>24833223</strong></p></article><article class="catalog-card"><img alt="WCF-126" src="assets/design-fence-new-030.jpg"/><h3>WCF-126</h3><p class="product-id-number">식별번호 <strong>23894184</strong></p></article><article class="catalog-card"><img alt="WCF-102" src="assets/design-fence-new-031.jpg"/><h3>WCF-102</h3><p class="product-id-number">식별번호 <strong>23656692</strong></p></article><article class="catalog-card"><img alt="WCF-091" src="assets/design-fence-new-032.jpg"/><h3>WCF-091</h3><p class="product-id-number">식별번호 <strong>23725769</strong></p></article><article class="catalog-card"><img alt="WCF-076" src="assets/design-fence-new-033.jpg"/><h3>WCF-076</h3><p class="product-id-number">식별번호 <strong>23635137</strong></p></article><article class="catalog-card"><img alt="WCF-108" src="assets/design-fence-new-034.jpg"/><h3>WCF-108</h3><p class="product-id-number">식별번호 <strong>23687598</strong></p></article><article class="catalog-card"><img alt="WCF-054" src="assets/design-fence-new-035.jpg"/><h3>WCF-054</h3><p class="product-id-number">식별번호 <strong>23449964</strong></p></article><article class="catalog-card"><img alt="WCF-022" src="assets/design-fence-new-036.jpg"/><h3>WCF-022</h3><p class="product-id-number">식별번호 <strong>23221451</strong></p></article><article class="catalog-card"><img alt="WCF-228" src="assets/design-fence-new-037.jpg"/><h3>WCF-228</h3><p class="product-id-number">식별번호 <strong>24831923</strong></p></article><article class="catalog-card"><img alt="WCF-1017" src="assets/design-fence-new-038.jpg"/><h3>WCF-1017</h3><p class="product-id-number">식별번호 <strong>26153808</strong></p></article><article class="catalog-card"><img alt="WCF-031" src="assets/design-fence-new-039.jpg"/><h3>WCF-031</h3><p class="product-id-number">식별번호 <strong>23231873</strong></p></article><article class="catalog-card"><img alt="WCF-1009" src="assets/design-fence-new-040.jpg"/><h3>WCF-1009</h3><p class="product-id-number">식별번호 <strong>26030131</strong></p></article><article class="catalog-card"><img alt="WCF-1010" src="assets/design-fence-new-041.jpg"/><h3>WCF-1010</h3><p class="product-id-number">식별번호 <strong>26030133</strong></p></article><article class="catalog-card"><img alt="WCF-703" src="assets/design-fence-new-042.jpg"/><h3>WCF-703</h3><p class="product-id-number">식별번호 <strong>25679223</strong></p></article><article class="catalog-card"><img alt="WCF-1008" src="assets/design-fence-new-043.jpg"/><h3>WCF-1008</h3><p class="product-id-number">식별번호 <strong>26030130</strong></p></article><article class="catalog-card"><img alt="TWIN-001F" src="assets/design-fence-new-044.png"/><h3>TWIN-001F</h3><p class="product-id-number">식별번호 <strong>25223655</strong></p></article><article class="catalog-card"><img alt="WCF-369SW" src="assets/design-fence-new-045.jpg"/><h3>WCF-369SW</h3><p class="product-id-number">식별번호 <strong>26122003</strong></p></article><article class="catalog-card"><img alt="WCF-SW-1100" src="assets/design-fence-new-046.jpg"/><h3>WCF-SW-1100</h3><p class="product-id-number">식별번호 <strong>24592154</strong></p></article><article class="catalog-card"><img alt="WCF-698" src="assets/design-fence-new-047.png"/><h3>WCF-698</h3><p class="product-id-number">식별번호 <strong>25647649</strong></p></article><article class="catalog-card"><img alt="ALFEN-VC1500B" src="assets/design-fence-new-048.jpg"/><h3>ALFEN-VC1500B</h3><p class="product-id-number">식별번호 <strong>25270249</strong></p></article><article class="catalog-card"><img alt="WCF-023" src="assets/design-fence-new-049.jpg"/><h3>WCF-023</h3><p class="product-id-number">식별번호 <strong>23222416</strong></p></article><article class="catalog-card"><img alt="WCF-883" src="assets/design-fence-new-050.jpg"/><h3>WCF-883</h3><p class="product-id-number">식별번호 <strong>24964483</strong></p></article><article class="catalog-card"><img alt="WCF-884" src="assets/design-fence-new-051.jpg"/><h3>WCF-884</h3><p class="product-id-number">식별번호 <strong>24964484</strong></p></article><article class="catalog-card"><img alt="PJPD-02" src="assets/design-fence-new-052.jpg"/><h3>PJPD-02</h3><p class="product-id-number">식별번호 <strong>25610243</strong></p></article><article class="catalog-card"><img alt="WCF-1007" src="assets/design-fence-new-053.jpg"/><h3>WCF-1007</h3><p class="product-id-number">식별번호 <strong>26030129</strong></p></article><article class="catalog-card"><img alt="WCF-GJ-001" src="assets/design-fence-new-054.jpg"/><h3>WCF-GJ-001</h3><p class="product-id-number">식별번호 <strong>25649571</strong></p></article><article class="catalog-card"><img alt="WCF-222SW" src="assets/design-fence-new-055.jpg"/><h3>WCF-222SW</h3><p class="product-id-number">식별번호 <strong>24447280</strong></p></article><article class="catalog-card"><img alt="WCF-111SW" src="assets/design-fence-new-056.jpg"/><h3>WCF-111SW</h3><p class="product-id-number">식별번호 <strong>24447281</strong></p></article><article class="catalog-card"><img alt="WCF-1004" src="assets/design-fence-new-057.jpg"/><h3>WCF-1004</h3><p class="product-id-number">식별번호 <strong>25293070</strong></p></article><article class="catalog-card"><img alt="WCF-117" src="assets/design-fence-new-058.jpg"/><h3>WCF-117</h3><p class="product-id-number">식별번호 <strong>23811054</strong></p></article><article class="catalog-card"><img alt="WCF-1005" src="assets/design-fence-new-059.jpg"/><h3>WCF-1005</h3><p class="product-id-number">식별번호 <strong>25419013</strong></p></article><article class="catalog-card"><img alt="WCF-501GJ" src="assets/design-fence-new-060.jpg"/><h3>WCF-501GJ</h3><p class="product-id-number">식별번호 <strong>24774070</strong></p></article><article class="catalog-card"><img alt="ALFEN-4C2000" src="assets/design-fence-new-061.jpg"/><h3>ALFEN-4C2000</h3><p class="product-id-number">식별번호 <strong>25220130</strong></p></article><article class="catalog-card"><img alt="WCF-GJ-002" src="assets/design-fence-new-062.jpg"/><h3>WCF-GJ-002</h3><p class="product-id-number">식별번호 <strong>25649572</strong></p></article><article class="catalog-card"><img alt="PJPD-01" src="assets/design-fence-new-063.jpg"/><h3>PJPD-01</h3><p class="product-id-number">식별번호 <strong>25605330</strong></p></article><article class="catalog-card"><img alt="WCF-503GJ" src="assets/design-fence-new-064.jpg"/><h3>WCF-503GJ</h3><p class="product-id-number">식별번호 <strong>25617412</strong></p></article><article class="catalog-card"><img alt="WCF-204" src="assets/design-fence-new-065.jpg"/><h3>WCF-204</h3><p class="product-id-number">식별번호 <strong>23637085</strong></p></article><article class="catalog-card"><img alt="WCF-GJ-003" src="assets/design-fence-new-066.jpg"/><h3>WCF-GJ-003</h3><p class="product-id-number">식별번호 <strong>25658317</strong></p></article><article class="catalog-card"><img alt="WCF-202" src="assets/design-fence-new-067.jpg"/><h3>WCF-202</h3><p class="product-id-number">식별번호 <strong>23637081</strong></p></article><article class="catalog-card"><img alt="BARRICON-A" src="assets/design-fence-new-068.jpg"/><h3>BARRICON-A</h3><p class="product-id-number">식별번호 <strong>26189610</strong></p></article><article class="catalog-card"><img alt="BARRICON-A-01" src="assets/design-fence-new-069.jpg"/><h3>BARRICON-A-01</h3><p class="product-id-number">식별번호 <strong>26189612</strong></p></article><article class="catalog-card"><img alt="WCF-1018" src="assets/design-fence-new-070.jpg"/><h3>WCF-1018</h3><p class="product-id-number">식별번호 <strong>26153807</strong></p></article><article class="catalog-card"><img alt="WCF-1088" src="assets/design-fence-new-071.jpg"/><h3>WCF-1088</h3><p class="product-id-number">식별번호 <strong>26373794</strong></p></article><article class="catalog-card"><img alt="WCF-207" src="assets/design-fence-new-072.jpg"/><h3>WCF-207</h3><p class="product-id-number">식별번호 <strong>23701876</strong></p></article><article class="catalog-card"><img alt="BARRICON-A-02" src="assets/design-fence-new-073.jpg"/><h3>BARRICON-A-02</h3><p class="product-id-number">식별번호 <strong>26189611</strong></p></article><article class="catalog-card"><img alt="WCF-1016" src="assets/design-fence-new-074.jpg"/><h3>WCF-1016</h3><p class="product-id-number">식별번호 <strong>26144147</strong></p></article><article class="catalog-card"><img alt="WCF-1015" src="assets/design-fence-new-075.jpg"/><h3>WCF-1015</h3><p class="product-id-number">식별번호 <strong>26107311</strong></p></article><article class="catalog-card catalog-card-3d"><img alt="CHILDCAP-LV1" src="assets/design-fence-new-076.jpg"/><h3>CHILDCAP-LV1</h3><p class="product-id-number">식별번호 <strong>25481794</strong></p><a class="product-3d-link" href="childcap-lv1-3d.html" aria-label="CHILDCAP-LV1 3D로 보기">3D로 보기 <span>→</span></a></article><article class="catalog-card catalog-card-3d"><img alt="CHILDCAP-LV1-A" src="assets/design-fence-new-077.jpg"/><h3>CHILDCAP-LV1-A</h3><p class="product-id-number">식별번호 <strong>25481795</strong></p><a class="product-3d-link" href="childcap-lv1-3d.html?variant=a" aria-label="CHILDCAP-LV1-A 3D로 보기">3D로 보기 <span>→</span></a></article><article class="catalog-card catalog-card-3d"><img alt="CHILDCAP-LV1-B" src="assets/design-fence-new-078.jpg"/><h3>CHILDCAP-LV1-B</h3><p class="product-id-number">식별번호 <strong>25481796</strong></p><a class="product-3d-link" href="childcap-lv1-3d.html?variant=b" aria-label="CHILDCAP-LV1-B 3D로 보기">3D로 보기 <span>→</span></a></article><article class="catalog-card"><img alt="WC-123MF" src="assets/design-fence-new-079.jpg"/><h3>WC-123MF</h3><p class="product-id-number">식별번호 <strong>25466505</strong></p></article><article class="catalog-card"><img alt="WCF-88STONE" src="assets/design-fence-new-080.jpg"/><h3>WCF-88STONE</h3><p class="product-id-number">식별번호 <strong>26254003</strong></p></article><article class="catalog-card"><img alt="ALFEN-VC2000" src="assets/design-fence-new-081.jpg"/><h3>ALFEN-VC2000</h3><p class="product-id-number">식별번호 <strong>25282744</strong></p></article><article class="catalog-card"><img alt="WC-501H-B" src="assets/design-fence-new-082.jpg"/><h3>WC-501H-B</h3><p class="product-id-number">식별번호 <strong>25132613</strong></p></article></div>
+</div>
+</section>
+</main>
+<footer class="footer simple-footer">
+<div class="container footer-cert-row">
+<img alt="웰콘 인증 및 저작권 정보" class="footer-cert-image" src="assets/footer-certifications.png"/>
+<div aria-label="웰콘 연락처" class="footer-contact-info">
+<div><span>사무실전화</span><a href="tel:0314631033">031-463-1033</a></div>
+<div><span>팩스</span><strong>031-463-1035</strong></div>
+<div class="footer-contact-mobile"><span>상시연락</span><div><a href="tel:01037622373">010-3762-2373</a><a href="tel:01032174292">010-3217-4292</a><a href="tel:01091393304">010-9139-3304</a></div></div>
+</div>
+</div>
+</footer>
+<script>
+    const menuBtn=document.getElementById('menuBtn');
+    const mobileMenu=document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+  </script>
+<script id="wellcon-concept-b-motion">
+document.addEventListener("DOMContentLoaded",()=>{
+ const targets=document.querySelectorAll("main:not(.concept-b) section, main:not(.concept-b) .catalog-card, main:not(.concept-b) .product-card");
+ targets.forEach(e=>e.classList.add("wb-reveal"));
+ if(!("IntersectionObserver" in window)){targets.forEach(e=>e.classList.add("wb-show"));return}
+ const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("wb-show");io.unobserve(x.target)}}),{threshold:.08,rootMargin:"0px 0px -4% 0px"});
+ targets.forEach((e,i)=>{e.style.transitionDelay=((i%4)*55)+"ms";io.observe(e)})
+});
+</script>
+<script id="g2b-all-products-link">
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll(".catalog-card").forEach(card=>{
+    const strong=card.querySelector(".product-id-number strong");
+    if(!strong) return;
+    const id=(strong.textContent||"").trim().replace(/\D/g,"");
+    if(!id) return;
+
+    card.classList.add("g2b-product-link");
+    card.setAttribute("role","link");
+    card.setAttribute("tabindex","0");
+    card.setAttribute("title","나라장터 종합쇼핑몰에서 검색");
+
+    const openG2B=async()=>{
+      try{
+        await navigator.clipboard.writeText(id);
+      }catch(e){
+        const ta=document.createElement("textarea");
+        ta.value=id; ta.style.position="fixed"; ta.style.opacity="0";
+        document.body.appendChild(ta); ta.select();
+        try{document.execCommand("copy")}catch(err){}
+        ta.remove();
+      }
+      window.open("https://shop.g2b.go.kr/","_blank","noopener");
+    };
+
+    card.addEventListener("click",openG2B);
+    card.addEventListener("keydown",e=>{
+      if(e.key==="Enter"||e.key===" "){
+        e.preventDefault();
+        openG2B();
+      }
+    });
+  });
+});
+</script>
+<script id="g2b-card-note-script">
+document.addEventListener("DOMContentLoaded",()=>{
+ document.querySelectorAll(".g2b-product-link").forEach(card=>{
+   if(card.querySelector(".g2b-card-note")) return;
+   const note=document.createElement("div");
+   note.className="g2b-card-note";
+   note.innerHTML='<strong>※ 참고</strong> 제품 클릭 시 식별번호가 자동 복사됩니다.<br>나라장터 검색창에서 <b>Ctrl + V</b>로 붙여넣어 검색해 주세요.';
+   card.appendChild(note);
+ });
+});
+</script>
+<script id="wellcon-mobile-dropdown-all-pages">
+document.addEventListener('DOMContentLoaded', function(){
+  const menuBtn=document.getElementById('menuBtn');
+  const mobileMenu=document.getElementById('mobileMenu');
+  if(menuBtn && mobileMenu){
+    menuBtn.addEventListener('click', function(){
+      mobileMenu.classList.toggle('open');
+    });
+  }
+  document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      const wrap=btn.closest('.mobile-submenu-wrap');
+      if(!wrap) return;
+      document.querySelectorAll('.mobile-submenu-wrap.open').forEach(function(other){
+        if(other!==wrap){
+          other.classList.remove('open');
+          const ob=other.querySelector('.mobile-submenu-toggle');
+          if(ob) ob.setAttribute('aria-expanded','false');
+        }
+      });
+      const isOpen=wrap.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(mobileMenu) mobileMenu.classList.remove('open');
+    });
+  });
+});
+</script>
+<script src="mobile-nav.js"></script>
+<script id="product-page-entry-animation-js">
+document.addEventListener('DOMContentLoaded',function(){
+  const main=document.querySelector('main');
+  if(!main) return;
+  main.classList.add('product-page-enter');
+  const cards=[...main.querySelectorAll('.catalog-card,.product-card')];
+  cards.forEach((card,i)=>{card.style.animationDelay=(0.10+(i%8)*0.055)+'s';});
+  requestAnimationFrame(()=>requestAnimationFrame(()=>main.classList.add('product-page-ready')));
+});
+</script>
+<script id="wellcon-page-product-search-script">
+document.addEventListener("DOMContentLoaded",()=>{
+  const grid=document.querySelector(".catalog-grid");
+  if(!grid || document.querySelector(".page-product-search")) return;
+  const wrap=document.createElement("div");
+  wrap.className="page-product-search";
+  wrap.innerHTML='<input type="search" aria-label="제품 검색" placeholder="제품명 또는 식별번호 검색"><button type="button">검색</button>';
+  const status=document.createElement("div");
+  status.className="page-product-search-status";
+  status.setAttribute("aria-live","polite");
+  grid.parentNode.insertBefore(wrap,grid);
+  grid.parentNode.insertBefore(status,grid);
+  const input=wrap.querySelector("input"), btn=wrap.querySelector("button");
+  const cards=[...grid.querySelectorAll(".catalog-card")];
+  const run=()=>{
+    const q=input.value.trim().toLowerCase().replace(/\s+/g,"");
+    let shown=0;
+    cards.forEach(card=>{
+      const text=(card.textContent||"").toLowerCase().replace(/\s+/g,"");
+      const alt=(card.querySelector("img")?.alt||"").toLowerCase().replace(/\s+/g,"");
+      const ok=!q || text.includes(q) || alt.includes(q);
+      card.style.display=ok?"":"none"; if(ok) shown++;
+    });
+    status.textContent=q ? `검색 결과 ${shown}개` : "";
+  };
+  btn.addEventListener("click",run);
+  input.addEventListener("input",run);
+  input.addEventListener("keydown",e=>{if(e.key==="Enter") run()});
+});
+</script>
+<div aria-hidden="true" class="install-case-modal" id="installCaseModal">
+<div aria-labelledby="installCaseTitle" aria-modal="true" class="install-case-dialog" role="dialog">
+<div class="install-case-head"><h2 id="installCaseTitle">시공사례</h2><button aria-label="닫기" class="install-case-close" type="button">×</button></div>
+<div class="install-case-body"><div class="install-case-stage"><img alt="제품 이미지" id="installCaseImage"/></div><p class="install-case-caption" id="installCaseCaption"></p><p class="install-case-note"></p></div>
+</div>
+</div>
+<script id="installation-case-modal-script">
+document.addEventListener('DOMContentLoaded',()=>{
+ const modal=document.getElementById('installCaseModal'),view=document.getElementById('installCaseImage'),cap=document.getElementById('installCaseCaption'); if(!modal||!view)return;
+ const galleries={"WCF-001ROPE":["assets/projects/2023-WCF-001ROPE/001.jpg","assets/projects/2023-WCF-001ROPE/002.jpg","assets/projects/2023-WCF-001ROPE/003.jpg","assets/projects/2023-WCF-001ROPE/004.jpg","assets/projects/2023-WCF-001ROPE/005.jpg","assets/projects/2023-WCF-001ROPE/006.jpg","assets/projects/2023-WCF-001ROPE/007.jpg","assets/projects/2023-WCF-001ROPE/008.jpg","assets/projects/2023-WCF-001ROPE/009.jpg","assets/projects/2023-WCF-001ROPE/010.jpg","assets/projects/2023-WCF-001ROPE/011.jpg","assets/projects/2023-WCF-001ROPE/012.jpg","assets/projects/2023-WCF-001ROPE/013.jpg","assets/projects/2023-WCF-001ROPE/014.jpg"],"HANDAID-01":["assets/projects/2023-HANDAID-01/001.jpg","assets/projects/2023-HANDAID-01/002.jpg","assets/projects/2023-HANDAID-01/003.jpg","assets/projects/2023-HANDAID-01/004.jpg","assets/projects/2023-HANDAID-01/005.jpg","assets/projects/2023-HANDAID-01/006.jpg","assets/projects/2023-HANDAID-01/007.jpg","assets/projects/2023-HANDAID-01/008.jpg"],"WCF-054":["assets/projects/2023-WCF-054/001.jpg","assets/projects/2023-WCF-054/002.jpg","assets/projects/2023-WCF-054/003.jpg","assets/projects/2023-WCF-054/004.jpg","assets/projects/2023-WCF-054/005.jpg","assets/projects/2023-WCF-054/006.jpg","assets/projects/2023-WCF-054/007.jpg","assets/projects/2023-WCF-054/008.jpg","assets/projects/2023-WCF-054/009.jpg","assets/projects/2023-WCF-054/010.jpg","assets/projects/2023-WCF-054/011.jpg","assets/projects/2023-WCF-054/012.jpg","assets/projects/2023-WCF-054/013.jpg","assets/projects/2023-WCF-054/014.jpg","assets/projects/2023-WCF-054/015.jpg","assets/projects/2023-WCF-054/016.jpg","assets/projects/2025-WCF-054-서울/001.jpg","assets/projects/2025-WCF-054-서울/002.jpg","assets/projects/2025-WCF-054-서울/003.jpg","assets/projects/2025-WCF-054-서울/004.jpg","assets/projects/2025-WCF-054-서울/005.jpg","assets/projects/2025-WCF-054-서울/006.jpg","assets/projects/2025-WCF-054-서울/007.jpg","assets/projects/2025-WCF-054-서울/008.jpg","assets/projects/2025-WCF-054-서울/009.jpg","assets/projects/2025-WCF-054-서울/010.jpg","assets/projects/2025-WCF-054-서울/011.jpg"],"WCF-056":["assets/projects/2023-WCF-056/001.jpg","assets/projects/2023-WCF-056/002.jpg","assets/projects/2023-WCF-056/003.jpg","assets/projects/2023-WCF-056/004.jpg","assets/projects/2023-WCF-056/005.jpg","assets/projects/2023-WCF-056/006.jpg","assets/projects/2023-WCF-056/007.jpg","assets/projects/2023-WCF-056/008.jpg","assets/projects/2023-WCF-056/009.jpg","assets/projects/2023-WCF-056/010.jpg","assets/projects/2023-WCF-056/011.jpg","assets/projects/2023-WCF-056/012.jpg","assets/projects/2023-WCF-056/013.jpg","assets/projects/2023-WCF-056/014.jpg","assets/projects/2023-WCF-056/015.jpg","assets/projects/2023-WCF-056/016.jpg","assets/projects/2023-WCF-056/017.jpg","assets/projects/2023-WCF-056/018.jpg","assets/projects/2023-WCF-056-강화/001.jpg","assets/projects/2023-WCF-056-강화/002.jpg","assets/projects/2023-WCF-056-강화/003.jpg","assets/projects/2023-WCF-056-강화/004.jpg","assets/projects/2023-WCF-056-강화/005.jpg","assets/projects/2023-WCF-056-강화/006.jpg","assets/projects/2023-WCF-056-강화/007.jpg"],"WCF-SW-1100":["assets/projects/2023-WCF-SW-1100/001.jpg","assets/projects/2023-WCF-SW-1100/002.jpg","assets/projects/2023-WCF-SW-1100/003.jpg","assets/projects/2023-WCF-SW-1100/004.jpg","assets/projects/2023-WCF-SW-1100/005.jpg","assets/projects/2023-WCF-SW-1100/006.jpg","assets/projects/2023-WCF-SW-1100/007.jpg","assets/projects/2023-WCF-SW-1100/008.jpg","assets/projects/2023-WCF-SW-1100/009.jpg","assets/projects/2023-WCF-SW-1100/010.jpg","assets/projects/2023-WCF-SW-1100/011.jpg","assets/projects/2023-WCF-SW-1100/012.jpg","assets/projects/2023-WCF-SW-1100/013.jpg"],"WF-001":["assets/projects/2023-WF-001/001.jpg","assets/projects/2023-WF-001/002.jpg","assets/projects/2023-WF-001/003.jpg","assets/projects/2023-WF-001/004.jpg","assets/projects/2023-WF-001/005.jpg","assets/projects/2023-WF-001/006.jpg","assets/projects/2023-WF-001/007.jpg","assets/projects/2023-WF-001/008.jpg","assets/projects/2023-WF-001/009.jpg","assets/projects/2023-WF-001/010.jpg","assets/projects/2023-WF-001/011.jpg","assets/projects/2023-WF-001/012.jpg","assets/projects/2023-WF-001/013.jpg","assets/projects/2023-WF-001/014.jpg","assets/projects/2024-WF-001-울산 범월감방파제/001.jpg","assets/projects/2024-WF-001-울산 범월감방파제/002.jpg","assets/projects/2024-WF-001-울산 범월감방파제/003.jpg","assets/projects/2024-WF-001-울산 범월감방파제/004.jpg","assets/projects/2024-WF-001-울산 범월감방파제/005.jpg","assets/projects/2024-WF-001-울산 범월감방파제/006.jpg","assets/projects/2024-WF-001-울산 범월감방파제/007.jpg","assets/projects/2024-WF-001-울산 범월감방파제/008.jpg","assets/projects/2024-WF-001-울산 범월감방파제/009.jpg","assets/projects/2024-WF-001-울산 범월감방파제/010.jpg","assets/projects/2024-WF-001-울산 범월감방파제/011.jpg","assets/projects/2024-WF-001-울산 범월감방파제/012.jpg","assets/projects/2024-WF-001-울산 범월감방파제/013.jpg","assets/projects/2024-WF-001-울산 범월감방파제/014.jpg","assets/projects/2024-WF-001-울산 범월감방파제/015.jpg","assets/projects/2024-WF-001-울산 범월감방파제/016.jpg","assets/projects/2024-WF-001-울산 범월감방파제/017.jpg"],"WCF-222SW":["assets/projects/2023-WCF-222SW-후포항/001.jpg","assets/projects/2023-WCF-222SW-후포항/002.jpg","assets/projects/2023-WCF-222SW-후포항/003.jpg","assets/projects/2023-WCF-222SW-후포항/004.jpg","assets/projects/2023-WCF-222SW-후포항/005.jpg","assets/projects/2023-WCF-222SW-후포항/006.jpg","assets/projects/2023-WCF-222SW-후포항/007.jpg","assets/projects/2023-WCF-222SW-후포항/008.jpg","assets/projects/2023-WCF-222SW-후포항/009.jpg","assets/projects/2023-WCF-222SW-후포항/010.jpg","assets/projects/2023-WCF-222SW-후포항/011.jpg","assets/projects/2023-WCF-222SW-후포항/012.jpg"],"CHILDCAP-LV1-B":["assets/projects/2024-CHILDCAP-LV1-B/001.jpg","assets/projects/2024-CHILDCAP-LV1-B/002.jpg","assets/projects/2024-CHILDCAP-LV1-B/003.jpg","assets/projects/2024-CHILDCAP-LV1-B/004.jpg","assets/projects/2024-CHILDCAP-LV1-B/005.jpg","assets/projects/2024-CHILDCAP-LV1-B/006.jpg","assets/projects/2024-CHILDCAP-LV1-B/007.jpg","assets/projects/2024-CHILDCAP-LV1-B/008.jpg","assets/projects/2024-CHILDCAP-LV1-B/009.jpg","assets/projects/2024-CHILDCAP-LV1-B/010.jpg","assets/projects/2024-CHILDCAP-LV1-B/011.jpg","assets/projects/2024-CHILDCAP-LV1-B/012.jpg","assets/projects/2024-CHILDCAP-LV1-B/013.jpg","assets/projects/2024-CHILDCAP-LV1-B/014.jpg","assets/projects/2024-CHILDCAP-LV1-B/015.jpg","assets/projects/2025-CHILDCAP-LV1-B/001.jpg","assets/projects/2025-CHILDCAP-LV1-B/002.jpg","assets/projects/2025-CHILDCAP-LV1-B/003.jpg","assets/projects/2025-CHILDCAP-LV1-B/004.jpg","assets/projects/2025-CHILDCAP-LV1-B/005.jpg","assets/projects/2025-CHILDCAP-LV1-B/006.jpg","assets/projects/2025-CHILDCAP-LV1-B/007.jpg","assets/projects/2025-CHILDCAP-LV1-B/008.jpg","assets/projects/2025-CHILDCAP-LV1-B/009.jpg","assets/projects/2025-CHILDCAP-LV1-B/010.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/001.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/002.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/003.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/004.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/005.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/006.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/007.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/008.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/009.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/010.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/011.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/012.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/013.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/014.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/015.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/016.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/017.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/018.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/019.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/020.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/021.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/022.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/023.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/024.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/025.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/026.jpg","assets/projects/2025-CHILDCAP-LV1-B-인천-연수구/027.jpg"],"WCF-315":["assets/projects/2024-WCF-315-강화도/001.jpg","assets/projects/2024-WCF-315-강화도/002.jpg","assets/projects/2024-WCF-315-강화도/003.jpg","assets/projects/2024-WCF-315-강화도/004.jpg","assets/projects/2024-WCF-315-강화도/005.jpg","assets/projects/2024-WCF-315-강화도/006.jpg","assets/projects/2024-WCF-315-강화도/007.jpg","assets/projects/2024-WCF-315-강화도/008.jpg","assets/projects/2024-WCF-315-강화도/009.jpg","assets/projects/2024-WCF-315-강화도/010.jpg","assets/projects/2024-WCF-315-강화도/011.jpg","assets/projects/2024-WCF-315-강화도/012.jpg","assets/projects/2024-WCF-315-강화도/013.jpg","assets/projects/2024-WCF-315-강화도/014.jpg","assets/projects/2024-WCF-315-강화도/015.jpg","assets/projects/2024-WCF-315-강화도/016.jpg","assets/projects/2024-WCF-315-강화도/017.jpg","assets/projects/2024-WCF-315-강화도/018.jpg","assets/projects/2024-WCF-315-강화도/019.jpg","assets/projects/2024-WCF-315-강화도/020.jpg","assets/projects/2024-WCF-315-강화도/021.jpg","assets/projects/2024-WCF-315-강화도/022.jpg","assets/projects/2024-WCF-315-강화도/023.jpg","assets/projects/2024-WCF-315-강화도/024.jpg","assets/projects/2024-WCF-315-강화도/025.jpg","assets/projects/2024-WCF-315-강화도/026.jpg","assets/projects/2024-WCF-315-강화도/027.jpg","assets/projects/2024-WCF-315-강화도/028.jpg","assets/projects/2024-WCF-315-강화도/029.jpg","assets/projects/2024-WCF-315-강화도/030.jpg","assets/projects/2024-WCF-315-강화도/031.jpg","assets/projects/2024-WCF-315-강화도/032.jpg","assets/projects/2024-WCF-315-강화도/033.jpg","assets/projects/2024-WCF-315-강화도/034.jpg","assets/projects/2024-WCF-315-강화도/035.jpg","assets/projects/2024-WCF-315-강화도/036.jpg","assets/projects/2024-WCF-315-강화도/037.jpg","assets/projects/2024-WCF-315-강화도/038.jpg","assets/projects/2024-WCF-315-강화도/039.jpg","assets/projects/2024-WCF-315-강화도/040.jpg","assets/projects/2024-WCF-315-강화도/041.jpg","assets/projects/2024-WCF-315-강화도/042.jpg","assets/projects/2024-WCF-315-강화도/043.jpg","assets/projects/2025-WCF-315-강화군/001.jpg","assets/projects/2025-WCF-315-강화군/002.jpg","assets/projects/2025-WCF-315-강화군/003.jpg","assets/projects/2025-WCF-315-강화군/004.jpg","assets/projects/2025-WCF-315-강화군/005.jpg","assets/projects/2025-WCF-315-강화군/006.jpg","assets/projects/2025-WCF-315-강화군/007.jpg","assets/projects/2025-WCF-315-강화군/008.jpg","assets/projects/2025-WCF-315-강화군/009.jpg","assets/projects/2025-WCF-315-강화군/010.jpg","assets/projects/2025-WCF-315-강화군/011.jpg","assets/projects/2025-WCF-315-강화군/012.jpg","assets/projects/2025-WCF-315-강화군/013.jpg","assets/projects/2025-WCF-315-강화군/014.jpg","assets/projects/2025-WCF-315-강화군/015.jpg","assets/projects/2025-WCF-315-강화군/016.jpg","assets/projects/2025-WCF-315-강화군/017.jpg","assets/projects/2025-WCF-315-강화군/018.jpg","assets/projects/2025-WCF-315-강화군/019.jpg","assets/projects/2025-WCF-315-강화군/020.jpg","assets/projects/2025-WCF-315-강화군/021.jpg","assets/projects/2025-WCF-315-강화군/022.jpg","assets/projects/2025-WCF-315-강화군/023.jpg","assets/projects/2025-WCF-315-강화군/024.jpg","assets/projects/2025-WCF-315-강화군/025.jpg","assets/projects/2025-WCF-315-강화군/026.jpg","assets/projects/2025-WCF-315-강화군/027.jpg"],"WCF-883":["assets/projects/2024-WCF-883-화개정원/001.jpg","assets/projects/2024-WCF-883-화개정원/002.jpg","assets/projects/2024-WCF-883-화개정원/003.jpg","assets/projects/2024-WCF-883-화개정원/004.jpg","assets/projects/2024-WCF-883-화개정원/005.jpg","assets/projects/2024-WCF-883-화개정원/006.jpg","assets/projects/2024-WCF-883-화개정원/007.jpg","assets/projects/2024-WCF-883-화개정원/008.jpg","assets/projects/2024-WCF-883-화개정원/009.jpg","assets/projects/2024-WCF-883-화개정원/010.jpg","assets/projects/2024-WCF-883-화개정원/011.jpg","assets/projects/2024-WCF-883-화개정원/012.jpg","assets/projects/2024-WCF-883-화개정원/013.jpg","assets/projects/2025-WCF-883/001.jpg","assets/projects/2025-WCF-883/002.jpg","assets/projects/2025-WCF-883/003.jpg","assets/projects/2025-WCF-883/004.jpg"],"CHILDCAP-LV1":["assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/001.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/002.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/003.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/004.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/005.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/006.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/007.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/008.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/009.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/010.jpg","assets/projects/2024-CHILDCAP-LV1-서울 영등포 당사초등학교/011.jpg"],"WCF-002":["assets/projects/2025-WCF-002-초평항/001.jpg","assets/projects/2025-WCF-002-초평항/002.jpg","assets/projects/2025-WCF-002-초평항/003.jpg","assets/projects/2025-WCF-002-초평항/004.jpg","assets/projects/2025-WCF-002-초평항/005.jpg","assets/projects/2025-WCF-002-초평항/006.jpg"],"WCF-369":["assets/projects/2026-WCF-369+WCF-071/001.jpg","assets/projects/2026-WCF-369+WCF-071/002.jpg","assets/projects/2026-WCF-369+WCF-071/003.jpg","assets/projects/2026-WCF-369+WCF-071/004.jpg","assets/projects/2026-WCF-369+WCF-071/005.jpg"],"WCF-071":["assets/projects/2026-WCF-369+WCF-071/001.jpg","assets/projects/2026-WCF-369+WCF-071/002.jpg","assets/projects/2026-WCF-369+WCF-071/003.jpg","assets/projects/2026-WCF-369+WCF-071/004.jpg","assets/projects/2026-WCF-369+WCF-071/005.jpg"],"BARRICON-A":["assets/projects/2026-BARRICON-A-충돌시험/001.jpg","assets/projects/2026-BARRICON-A-충돌시험/002.jpg","assets/projects/2026-BARRICON-A-충돌시험/003.jpg","assets/projects/2026-BARRICON-A-충돌시험/004.jpg","assets/projects/2026-BARRICON-A-충돌시험/005.jpg","assets/projects/2026-BARRICON-A-충돌시험/006.jpg","assets/projects/2026-BARRICON-A-충돌시험/007.jpg","assets/projects/2026-BARRICON-A-충돌시험/008.jpg"]}; let gallery=[],idx=0; const note=modal.querySelector('.install-case-note');
+ let prev=document.getElementById('installCasePrev'),next=document.getElementById('installCaseNext');
+ if(!prev){prev=document.createElement('button');prev.id='installCasePrev';prev.type='button';prev.textContent='‹';prev.setAttribute('aria-label','이전 사진');Object.assign(prev.style,{position:'absolute',left:'12px',top:'50%',transform:'translateY(-50%)',zIndex:'2',border:'0',background:'rgba(0,0,0,.65)',color:'#fff',fontSize:'38px',width:'46px',height:'60px',cursor:'pointer'});view.parentElement.style.position='relative';view.parentElement.appendChild(prev);}
+ if(!next){next=document.createElement('button');next.id='installCaseNext';next.type='button';next.textContent='›';next.setAttribute('aria-label','다음 사진');Object.assign(next.style,{position:'absolute',right:'12px',top:'50%',transform:'translateY(-50%)',zIndex:'2',border:'0',background:'rgba(0,0,0,.65)',color:'#fff',fontSize:'38px',width:'46px',height:'60px',cursor:'pointer'});view.parentElement.appendChild(next);}
+ const show=()=>{if(gallery.length)view.src=gallery[idx];if(note)note.textContent=gallery.length?`2023 시공사진 ${idx+1} / ${gallery.length}`:'';prev.style.display=next.style.display=gallery.length>1?'block':'none';};
+ const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
+ document.querySelectorAll('.catalog-grid .catalog-card').forEach(card=>{const img=card.querySelector('img');if(!img)return;img.title='클릭하여 시공사례 보기';img.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const name=card.querySelector('h3')?.textContent?.trim()||img.alt||'제품';gallery=galleries[name]||[];idx=0;if(gallery.length)show();else{view.src=img.src;if(note)note.textContent='';prev.style.display=next.style.display='none';}cap.textContent=name+' 시공사례';modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'});});
+ prev.addEventListener('click',()=>{if(gallery.length){idx=(idx-1+gallery.length)%gallery.length;show()}});next.addEventListener('click',()=>{if(gallery.length){idx=(idx+1)%gallery.length;show()}});modal.querySelector('.install-case-close').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close()});
+});
+</script>
+<style id="product-deeplink-style">.catalog-card.product-deeplink-target{outline:3px solid #111;outline-offset:6px;animation:productTargetPulse 1.2s ease 2}@keyframes productTargetPulse{50%{outline-color:#e60012;transform:translateY(-3px)}}</style>
+<script id="product-deeplink-script">document.addEventListener('DOMContentLoaded',function(){var m=location.hash.match(/^#product=(.*)$/);if(!m)return;var name='';try{name=decodeURIComponent(m[1])}catch(e){name=m[1]}var cards=Array.from(document.querySelectorAll('.catalog-grid .catalog-card'));var card=cards.find(function(c){var h=c.querySelector('h3');return h&&h.textContent.trim().toLowerCase()===name.trim().toLowerCase()});if(card){card.classList.add('product-deeplink-target');setTimeout(function(){card.scrollIntoView({behavior:'smooth',block:'center'})},180);setTimeout(function(){card.classList.remove('product-deeplink-target')},4200)}});</script></body>
+</html>

@@ -1,0 +1,271 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>견적문의 | WELLCON</title><link rel="stylesheet" href="style.css">
+<style>
+.quote-hero{padding:150px 24px 65px;background:#f5f6f7;text-align:center}.quote-hero h1{font-size:46px;margin:12px 0}
+.quote-wrap{max-width:1040px;margin:70px auto 100px;padding:0 24px}.quote-form{border-top:2px solid #111}
+.qrow{display:grid;grid-template-columns:180px 1fr;border-bottom:1px solid #e5e5e5;min-height:72px}
+.qrow>label{padding:24px 18px;font-weight:700;background:#fafafa}.qfield{padding:14px 18px}
+.qfield input,.qfield textarea{width:100%;box-sizing:border-box;border:1px solid #d6d6d6;padding:14px 15px;font:inherit}
+.qfield textarea{min-height:160px;resize:vertical}.req{color:#d71920}.agree{margin:24px 0;color:#555}
+.qsubmit{display:block;margin:35px auto 0;border:0;background:#111;color:#fff;padding:17px 55px;font-size:16px;font-weight:700;cursor:pointer}
+.qsubmit:hover{background:#d71920}.qnotice{text-align:center;color:#777;font-size:13px;margin-top:15px}
+@media(max-width:700px){.quote-hero{padding:110px 20px 45px}.quote-hero h1{font-size:34px}.quote-wrap{margin:45px auto 70px}.qrow{grid-template-columns:1fr}.qrow>label{padding:14px 15px}.qfield{padding:12px 0 18px}}
+</style><style>
+:root{--wb-dark:#0b0d0f;--wb-paper:#f2f0eb;--wb-lime:#d8ff3e;--wb-line:#c6c3bc;--wb-muted:#70757a}
+html{scroll-behavior:smooth}
+body{background:var(--wb-paper)!important;color:#111}
+.site-header,header.site-header{background:rgba(11,13,15,.94)!important;border-bottom:1px solid rgba(255,255,255,.12)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.site-header a,.site-header button,.site-header .logo,.site-header nav a{color:#f5f4ef!important}
+.site-header img{filter:none}
+.site-header nav a{position:relative}
+.site-header nav a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--wb-lime);transition:.3s}
+.site-header nav a:hover:after{width:100%}
+main:not(.concept-b){background:var(--wb-paper)}
+.page-hero,.sub-hero,.catalog-hero,.safety-hero{
+  background:var(--wb-dark)!important;color:#f5f4ef!important;
+  padding-top:150px!important;padding-bottom:85px!important;border-radius:0!important
+}
+.page-hero h1,.sub-hero h1,.catalog-hero h1,.safety-hero h1{font-size:clamp(42px,6vw,78px)!important;letter-spacing:-.055em!important;line-height:1!important}
+.page-hero p,.sub-hero p,.catalog-hero p,.safety-hero p{color:#9da4a8!important}
+.catalog-toolbar,.product-toolbar,.filter-bar{
+  background:#e8e6e0!important;border:1px solid #c8c5bd!important;border-radius:0!important;
+  box-shadow:none!important
+}
+.catalog-card,.product-card{
+  background:transparent!important;border:0!important;border-top:1px solid #bdbab3!important;border-radius:0!important;
+  box-shadow:none!important;transition:transform .35s ease,background .35s ease!important
+}
+.catalog-card:hover,.product-card:hover{transform:translateY(-7px);background:rgba(255,255,255,.45)!important}
+.catalog-card img,.product-card img{border-radius:0!important;transition:transform .55s cubic-bezier(.2,.7,.2,1)!important}
+.catalog-card:hover img,.product-card:hover img{transform:scale(1.025)}
+.catalog-card h3,.product-card h3{font-weight:700!important;letter-spacing:-.025em!important}
+.product-id-number,.product-id-number span,.catalog-card p{color:#6f7477!important}
+button,.btn,.search-btn,.catalog-toolbar button{
+  border-radius:0!important;box-shadow:none!important;transition:.3s!important
+}
+.btn:hover,.search-btn:hover,button:hover{transform:translateY(-2px)}
+footer,.site-footer{background:#0b0d0f!important;color:#aaa!important;border-top:1px solid #272b2f!important}
+footer a,.site-footer a{color:#ddd!important}
+section{scroll-margin-top:90px}
+.wb-reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.wb-reveal.wb-show{opacity:1;transform:none}
+@media(max-width:760px){
+ .page-hero,.sub-hero,.catalog-hero,.safety-hero{padding-top:125px!important;padding-bottom:65px!important}
+}
+@media(prefers-reduced-motion:reduce){.wb-reveal{opacity:1;transform:none;transition:none}}
+
+
+/* 상단 메뉴 마우스 오버 포인트: 녹색 → 빨간색 */
+.site-header nav a::after,
+.site-header nav a:after{
+  background:#e60012 !important;
+}
+.site-header nav a:hover,
+.site-header nav a:focus{
+  color:#e60012 !important;
+}
+
+
+/* 제품소개 드롭다운 - 기존 상단바 디자인에 맞춘 정돈된 스타일 */
+.desktop-nav .product-menu-wrap,
+.desktop-nav .project-menu-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  height:100%;
+}
+.desktop-nav .product-menu-wrap > a,
+.desktop-nav .project-menu-wrap > a{
+  display:flex;
+  align-items:center;
+  height:100%;
+  padding:0;
+}
+
+/* 메뉴 간 이질감 없이, 상단바 바로 아래 이어지는 플로팅 패널 */
+.desktop-nav .product-submenu,
+.desktop-nav .project-submenu{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:50%;
+  transform:translateX(-50%) translateY(8px);
+  min-width:178px;
+  padding:6px;
+  background:rgba(20,20,20,.96);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:8px;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility .18s ease;
+  z-index:99999;
+}
+
+/* 마우스가 상단 메뉴에서 하위메뉴로 자연스럽게 이동하도록 투명 브리지 */
+.desktop-nav .product-menu-wrap::after,
+.desktop-nav .project-menu-wrap::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:-16px;
+  right:-16px;
+  height:16px;
+}
+
+.desktop-nav .product-menu-wrap:hover .product-submenu,
+.desktop-nav .project-menu-wrap:hover .project-submenu,
+.desktop-nav .product-menu-wrap:focus-within .product-submenu,
+.desktop-nav .project-menu-wrap:focus-within .project-submenu{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+
+.desktop-nav .product-submenu a,
+.desktop-nav .project-submenu a{
+  display:block !important;
+  height:auto !important;
+  padding:11px 14px !important;
+  margin:0 !important;
+  color:rgba(255,255,255,.86) !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:5px;
+  font-size:13px;
+  font-weight:500;
+  line-height:1.2;
+  letter-spacing:-.02em;
+  text-align:left;
+  white-space:nowrap;
+  transition:background .16s ease,color .16s ease,transform .16s ease;
+}
+.desktop-nav .product-submenu a + a,
+.desktop-nav .project-submenu a + a{
+  margin-top:2px !important;
+}
+.desktop-nav .product-submenu a::before,
+.desktop-nav .product-submenu a::after,
+.desktop-nav .project-submenu a::before,
+.desktop-nav .project-submenu a::after{
+  display:none !important;
+}
+.desktop-nav .product-submenu a:hover,
+.desktop-nav .project-submenu a:hover,
+.desktop-nav .product-submenu a:focus,
+.desktop-nav .project-submenu a:focus{
+  color:#fff !important;
+  background:rgba(255,255,255,.08) !important;
+  transform:translateX(2px);
+}
+.desktop-nav .product-submenu a:hover::marker,
+.desktop-nav .project-submenu a:hover::marker{
+  color:#e60012;
+}
+
+/* 기존 빨간 hover 포인트와 연결 */
+.desktop-nav .product-submenu a:hover,
+.desktop-nav .project-submenu a:hover{
+  box-shadow:inset 2px 0 0 #e60012;
+}
+
+/* 모바일에서는 기존 메뉴를 방해하지 않도록 드롭다운 숨김 */
+@media (max-width:900px){
+  .desktop-nav .product-menu-wrap .product-submenu,
+  .desktop-nav .project-menu-wrap .project-submenu{
+    display:none !important;
+  }
+}
+</style>
+
+
+<link rel="stylesheet" href="apple-site.css">
+<link rel="stylesheet" href="wellcon-boundary.css">
+<link rel="stylesheet" href="header-final-fix.css?v=20260921-4"><script defer src="wellcon-boundary.js"></script></head><body class="quote-page"><header class="site-header">
+  <a class="brand brand-logo" href="index.html" aria-label="웰콘 홈"><img src="assets/wellcon-logo.png" alt="WELLCON 웰콘 로고"></a>
+  <nav class="desktop-nav" aria-label="주요 메뉴"><a href="company.html">회사소개</a><div class="product-menu-wrap">
+<a href="bridge-railing.html">제품소개</a>
+<div class="product-submenu" aria-label="제품소개 하위 메뉴">
+<a href="bridge-railing.html">알루미늄제교량난간</a>
+<a href="design-fence.html">디자인형울타리</a>
+<a href="aluminum-median-barrier.html">알루미늄제도로중앙분리대</a>
+<a href="lane-divider.html">차선분리대</a>
+<a href="bar-fence.html">창살형울타리</a>
+<a href="metal-other-fence.html">금속제기타울타리</a>
+</div>
+</div><div class="project-menu-wrap">
+<a href="projects.html">시공사례</a>
+<div class="project-submenu" aria-label="시공사례 하위 메뉴">
+<a href="projects.html">전체 시공사례</a>
+<a href="projects.html#y2026">2026</a>
+<a href="projects.html#y2025">2025</a>
+<a href="projects.html#y2024">2024</a>
+<a href="projects.html#y2023">2023</a>
+</div>
+</div><a href="technology.html">기술자료</a></nav>
+  <div class="header-actions"><a class="btn btn-primary header-cta" href="quote.html">견적문의 <span>→</span></a><button class="menu-btn" id="menuBtn" aria-label="모바일 메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="company.html">회사소개</a>
+      <div class="mobile-submenu-wrap">
+        <button class="mobile-submenu-toggle" type="button" aria-expanded="false">제품소개 <span>⌄</span></button>
+        <div class="mobile-submenu">
+          <a href="bridge-railing.html">알루미늄제교량난간</a>
+          <a href="design-fence.html">디자인형울타리</a>
+          <a href="aluminum-median-barrier.html">알루미늄제도로중앙분리대</a>
+          <a href="lane-divider.html">차선분리대</a>
+          <a href="bar-fence.html">창살형울타리</a>
+          <a href="metal-other-fence.html">금속제기타울타리</a>
+        </div>
+      </div>
+      <div class="mobile-submenu-wrap">
+        <button class="mobile-submenu-toggle" type="button" aria-expanded="false">시공사례 <span>⌄</span></button>
+        <div class="mobile-submenu">
+          <a href="projects.html">전체 시공사례</a>
+          <a href="projects.html#y2026">2026</a>
+          <a href="projects.html#y2025">2025</a>
+<a href="projects.html#y2024">2024</a>
+<a href="projects.html#y2023">2023</a>
+        </div>
+      </div>
+      <a href="technology.html">기술자료</a>
+      <a href="quote.html">견적문의</a>
+    </div>
+</header>
+<section class="quote-hero"><p class="eyebrow">CONTACT · ESTIMATE</p><h1>견적문의</h1><p>제품 및 시공 견적에 필요한 정보를 남겨주세요.</p></section>
+<main class="quote-wrap"><form class="quote-form" id="quoteForm" autocomplete="off">
+<div class="qrow"><label>회사 / 기관명</label><div class="qfield"><input name="company" autocomplete="off"></div></div>
+<div class="qrow"><label>담당자명 <span class="req">*</span></label><div class="qfield"><input name="name" required autocomplete="off"></div></div>
+<div class="qrow"><label>연락처 <span class="req">*</span></label><div class="qfield"><input name="phone" required placeholder="010-0000-0000" autocomplete="off"></div></div>
+<div class="qrow"><label>이메일 <span class="req">*</span></label><div class="qfield"><input name="email" type="email" required autocomplete="off"></div></div>
+<div class="qrow"><label>관심 제품</label><div class="qfield"><input id="product" name="product" placeholder="제품명 / 모델명" autocomplete="off"></div></div>
+<div class="qrow"><label>예상 수량 / 길이</label><div class="qfield"><input name="quantity" placeholder="예: 100m / 20EA" autocomplete="off"></div></div>
+<div class="qrow"><label>설치 지역</label><div class="qfield"><input name="location" autocomplete="off"></div></div>
+<div class="qrow"><label>문의 내용 <span class="req">*</span></label><div class="qfield"><textarea name="message" required autocomplete="off"></textarea></div></div>
+<div class="qrow"><label>첨부파일</label><div class="qfield"><input type="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.dxf,.zip"></div></div>
+<div class="agree"><label><input type="checkbox" required autocomplete="off"> 개인정보 수집 및 이용에 동의합니다. <span class="req">*</span></label></div>
+<button class="qsubmit" type="submit">견적문의 보내기</button>
+<p class="qnotice">현재 테스트 단계이며 실제 전송은 이메일/서버 연동 후 활성화됩니다.</p></form></main>
+<script>const q=new URLSearchParams(location.search).get('product');if(q)document.getElementById('product').value=q;
+document.getElementById('quoteForm').addEventListener('submit',e=>{e.preventDefault();alert('입력 내용이 확인되었습니다. 현재 테스트 단계로 실제 전송은 되지 않습니다.');});</script>
+<footer class="footer simple-footer">
+<div class="container footer-cert-row">
+<img alt="웰콘 인증 및 저작권 정보" class="footer-cert-image" src="assets/footer-certifications.png"/>
+<div aria-label="웰콘 연락처" class="footer-contact-info">
+<div><span>사무실전화</span><a href="tel:0314631033">031-463-1033</a></div>
+<div><span>팩스</span><strong>031-463-1035</strong></div>
+<div class="footer-contact-mobile"><span>상시연락</span><div><a href="tel:01037622373">010-3762-2373</a><a href="tel:01032174292">010-3217-4292</a><a href="tel:01091393304">010-9139-3304</a></div></div>
+</div>
+</div>
+</footer>
+<script src="script.js"></script>
+
+
+<script src="mobile-nav.js"></script>
+</body></html>

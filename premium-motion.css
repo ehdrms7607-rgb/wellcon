@@ -1,0 +1,273 @@
+:root{
+  --premium-ease:cubic-bezier(.22,.72,.18,1);
+  --premium-fast:280ms;
+  --premium-slow:820ms;
+  --premium-blue:#1473e6;
+  --premium-red:#e60012;
+}
+
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+
+.premium-progress{
+  position:fixed;z-index:20001;left:0;top:0;width:100%;height:2px;
+  transform:scaleX(0);transform-origin:left center;
+  background:linear-gradient(90deg,var(--premium-red),#ff5662 42%,var(--premium-blue));
+  box-shadow:0 0 14px rgba(230,0,18,.3);
+  pointer-events:none;will-change:transform;
+}
+
+.site-header{
+  transition:
+    height var(--premium-fast) ease,
+    background-color var(--premium-fast) ease,
+    border-color var(--premium-fast) ease,
+    box-shadow var(--premium-fast) ease,
+    transform var(--premium-fast) ease!important;
+}
+.site-header.is-scrolled{
+  box-shadow:0 12px 36px rgba(14,22,31,.09)!important;
+  border-bottom-color:rgba(20,28,36,.1)!important;
+}
+.site-header .brand-logo img{
+  transition:transform .5s var(--premium-ease),filter .35s ease!important;
+}
+.site-header .brand-logo:hover img{transform:scale(1.035)}
+.desktop-nav>a,.desktop-nav>div>a{
+  position:relative;
+}
+.desktop-nav>a::after,.desktop-nav>div>a::after{
+  content:"";position:absolute;left:50%;right:50%;bottom:-8px;height:1px;
+  background:currentColor;opacity:.65;
+  transition:left .35s var(--premium-ease),right .35s var(--premium-ease);
+}
+.desktop-nav>a:hover::after,.desktop-nav>div>a:hover::after{left:0;right:0}
+
+/* Header labels: dropdown parents must remain visible like ordinary nav links. */
+@media(min-width:981px){
+  .site-header .desktop-nav .product-menu-wrap,
+  .site-header .desktop-nav .project-menu-wrap{
+    display:flex!important;
+    align-items:center!important;
+    height:100%!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+  .site-header .desktop-nav .product-menu-wrap>a,
+  .site-header .desktop-nav .project-menu-wrap>a{
+    display:flex!important;
+    align-items:center!important;
+    height:100%!important;
+    opacity:1!important;
+    visibility:visible!important;
+    -webkit-text-fill-color:currentColor!important;
+  }
+}
+
+@media(max-width:980px){
+  .site-header #mobileMenu .mobile-submenu-wrap,
+  .site-header #mobileMenu .mobile-submenu-toggle{
+    display:flex!important;
+    width:100%!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+  .site-header #mobileMenu .mobile-submenu-wrap{
+    flex-direction:column!important;
+  }
+  .site-header #mobileMenu .mobile-submenu-toggle{
+    align-items:center!important;
+    justify-content:space-between!important;
+    color:#1d1d1f!important;
+    -webkit-text-fill-color:#1d1d1f!important;
+  }
+  .site-header #mobileMenu .mobile-submenu-toggle span{
+    color:#e60012!important;
+    -webkit-text-fill-color:#e60012!important;
+  }
+  .site-header #mobileMenu .mobile-submenu-wrap.open .mobile-submenu{
+    display:block!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+  .site-header #mobileMenu .mobile-submenu a{
+    opacity:1!important;
+    visibility:visible!important;
+    color:#3a3a3c!important;
+    -webkit-text-fill-color:#3a3a3c!important;
+  }
+}
+
+.motion-ready .motion-reveal{
+  opacity:0;
+  transform:translate3d(0,34px,0);
+  filter:blur(7px);
+  transition:
+    opacity var(--premium-slow) var(--premium-ease),
+    transform var(--premium-slow) var(--premium-ease),
+    filter var(--premium-slow) var(--premium-ease);
+  transition-delay:var(--premium-delay,0ms);
+  will-change:opacity,transform,filter;
+}
+.motion-ready .motion-reveal.motion-in{
+  opacity:1;transform:translate3d(0,0,0);filter:blur(0);
+}
+.motion-ready .motion-reveal[data-motion="left"]{transform:translate3d(-34px,0,0)}
+.motion-ready .motion-reveal[data-motion="right"]{transform:translate3d(34px,0,0)}
+.motion-ready .motion-reveal[data-motion="scale"]{transform:scale(.965)}
+.motion-ready .motion-reveal.motion-in[data-motion]{transform:none}
+
+.premium-interactive{
+  position:relative!important;
+  isolation:isolate;
+  transition:
+    transform .45s var(--premium-ease),
+    box-shadow .45s var(--premium-ease),
+    border-color .35s ease!important;
+}
+.premium-sheen{
+  position:absolute;z-index:3;inset:0;border-radius:inherit;
+  background:radial-gradient(420px circle at var(--premium-x,50%) var(--premium-y,50%),rgba(255,255,255,.2),transparent 42%);
+  opacity:0;transition:opacity .35s ease;pointer-events:none;
+}
+.premium-interactive:hover .premium-sheen{opacity:1}
+
+.catalog-card img,.product-card img,.case-card img,.project-card img,
+.company-card img,.solution-card img,.category-card img{
+  transition:transform .8s var(--premium-ease),filter .5s ease!important;
+  will-change:transform;
+}
+
+.btn,.header-cta,.product-3d-link,.b-closing a,.company-cta a,
+.quote-submit,.qsubmit,button{
+  position:relative;overflow:hidden;
+}
+.premium-ripple{
+  position:absolute;z-index:20;width:12px;height:12px;border-radius:50%;
+  background:rgba(255,255,255,.42);pointer-events:none;
+  transform:translate(-50%,-50%) scale(0);
+  animation:premium-ripple .65s ease-out forwards;
+}
+@keyframes premium-ripple{
+  to{opacity:0;transform:translate(-50%,-50%) scale(18)}
+}
+.header-cta span,.product-3d-link span,.b-closing a span{
+  display:inline-block;transition:transform .35s var(--premium-ease);
+}
+.header-cta:hover span,.product-3d-link:hover span,.b-closing a:hover span{transform:translateX(5px)}
+
+/* Keep the G2B identification action and the 3D action visually separate. */
+.catalog-card.catalog-card-3d{
+  padding-bottom:24px!important;
+}
+.catalog-card.catalog-card-3d .product-3d-link{
+  position:relative!important;
+  left:auto!important;right:auto!important;bottom:auto!important;
+  width:auto!important;box-sizing:border-box!important;
+  margin:17px 22px 0!important;
+  flex:0 0 auto!important;
+}
+.catalog-card.catalog-card-3d .g2b-card-note{
+  margin-top:17px!important;
+  padding:13px 22px 0!important;
+  border-top:1px solid rgba(0,0,0,.1)!important;
+}
+
+.page-transition{
+  position:fixed;z-index:20000;inset:0;
+  display:grid;place-items:center;
+  box-sizing:border-box;
+  width:100vw;height:100dvh;min-height:100%;
+  padding:
+    max(18px,env(safe-area-inset-top))
+    max(18px,env(safe-area-inset-right))
+    max(18px,env(safe-area-inset-bottom))
+    max(18px,env(safe-area-inset-left));
+  background:rgba(4,6,9,.68);
+  -webkit-backdrop-filter:blur(22px) saturate(.78);
+  backdrop-filter:blur(22px) saturate(.78);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .56s ease,visibility 0s linear .56s;
+}
+.page-transition::after{
+  content:"";position:relative;
+  width:min(690px,94vw);aspect-ratio:2048/1447;
+  background:url("assets/wellcon-transition-logo.png") center/contain no-repeat;
+  mix-blend-mode:normal;
+  filter:none;
+  opacity:0;transform:scale(.92);
+  transform-origin:center center;
+  transition:opacity .5s ease .08s,transform .66s var(--premium-ease) .03s;
+}
+.page-transition.is-active{
+  opacity:1;visibility:visible;
+  transition:opacity .56s ease,visibility 0s linear 0s;
+}
+.page-transition.is-active::after{
+  opacity:1;transform:scale(1);
+}
+
+@media(hover:hover) and (pointer:fine){
+  .premium-interactive:hover{transform:translateY(-7px)}
+  .catalog-card:hover img,.product-card:hover img,.case-card:hover img,
+  .project-card:hover img,.company-card:hover img,.solution-card:hover img,
+  .category-card:hover img{transform:scale(1.045)}
+}
+
+@media(max-width:900px){
+  html{scroll-behavior:auto}
+  .motion-ready .motion-reveal{
+    transform:translate3d(0,20px,0);filter:blur(3px);
+    transition-duration:620ms;
+  }
+  .premium-interactive:active{transform:scale(.985)}
+  .premium-sheen{display:none}
+  .page-transition{
+    place-items:center;
+    width:100vw;height:100dvh;
+    padding:
+      max(14px,env(safe-area-inset-top))
+      max(14px,env(safe-area-inset-right))
+      max(14px,env(safe-area-inset-bottom))
+      max(14px,env(safe-area-inset-left));
+    background:rgba(3,5,8,.72);
+    -webkit-backdrop-filter:blur(16px) saturate(.8);
+    backdrop-filter:blur(16px) saturate(.8);
+    transition-duration:.48s;
+  }
+  .page-transition::after{
+    width:min(760px,118vw);
+    max-width:none;
+    margin:0;
+    background-position:50% 50%;
+    transform-origin:50% 50%;
+  }
+  .catalog-card.catalog-card-3d .product-3d-link{
+    margin:15px 16px 0!important;
+  }
+  .catalog-card.catalog-card-3d .g2b-card-note{
+    padding-left:16px!important;padding-right:16px!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .motion-ready .motion-reveal,
+  .motion-ready .motion-reveal[data-motion]{
+    opacity:1!important;transform:none!important;filter:none!important;
+    transition:none!important;
+  }
+  .premium-progress,.page-transition,.premium-ripple{display:none!important}
+  .site-header,.premium-interactive,
+  .catalog-card img,.product-card img,.case-card img,.project-card img{
+    transition:none!important;
+  }
+}
+
+@supports(view-transition-name:root){
+  @view-transition{navigation:auto}
+  ::view-transition-old(root){animation:premium-fade-out .22s ease both}
+  ::view-transition-new(root){animation:premium-fade-in .4s ease both}
+}
+@keyframes premium-fade-out{to{opacity:0;transform:scale(.995)}}
+@keyframes premium-fade-in{from{opacity:0;transform:translateY(8px)}}
