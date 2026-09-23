@@ -841,13 +841,13 @@ document.addEventListener('DOMContentLoaded', function(){
     const progress=document.getElementById('introProgressBar');
     if(!intro || !video || !skip) return;
 
-    const introSeenKey='wellconIntroSeenOnceV2';
+    const introSeenKey='wellconIntroSeenSessionV1';
     const hasSeenIntro=()=>{
-      try{return localStorage.getItem(introSeenKey)==='1';}
+      try{return sessionStorage.getItem(introSeenKey)==='1';}
       catch(_){return false;}
     };
     const markIntroSeen=()=>{
-      try{localStorage.setItem(introSeenKey,'1');}catch(_){}
+      try{sessionStorage.setItem(introSeenKey,'1');}catch(_){}
     };
     const closeIntro=(remember=true)=>{
       if(intro.classList.contains('is-hidden')) return;
