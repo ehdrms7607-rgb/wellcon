@@ -308,7 +308,7 @@ main.product-page-enter .wb-reveal{
 </style>
 <link rel="stylesheet" href="apple-site.css">
 <link rel="stylesheet" href="wellcon-boundary.css">
-<link rel="stylesheet" href="header-final-fix.css?v=20260921-4"><script defer src="wellcon-boundary.js"></script></head><body><header class="site-header">
+<link rel="stylesheet" href="header-final-fix.css?v=20260922-1"><script defer src="wellcon-boundary.js"></script></head><body><header class="site-header">
   <a class="brand brand-logo" href="index.html" aria-label="웰콘 홈"><img src="assets/wellcon-logo.png" alt="WELLCON 웰콘 로고"></a>
   <nav class="desktop-nav" aria-label="주요 메뉴"><a href="company.html">회사소개</a><div class="product-menu-wrap">
 <a href="bridge-railing.html">제품소개</a>
@@ -463,4 +463,52 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script id="case-product-navigation-fix">
+document.addEventListener('click', function (event) {
+  var link = event.target.closest('.case-product-jump');
+  if (!link) return;
+  var cardButton = link.closest('.case-open');
+  var product = (link.textContent || (cardButton && cardButton.dataset.prod) || '').trim();
+  var category = ((cardButton && cardButton.dataset.cat) || (document.getElementById('modalCat') && document.getElementById('modalCat').textContent) || '').trim();
+  var pageMap = {'알루미늄제교량난간':'bridge-railing.html','디자인형울타리':'design-fence.html','금속제기타울타리':'metal-other-fence.html','알루미늄제도로중앙분리대':'aluminum-median-barrier.html','차선분리대':'lane-divider.html','창살형울타리':'bar-fence.html'};
+  var href = pageMap[category] && product ? pageMap[category] + '#product=' + encodeURIComponent(product) : link.getAttribute('href');
+  if (!href) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  window.location.assign(href);
+}, true);
+</script>
+<script id="case-all-product-links">
+document.addEventListener('DOMContentLoaded', function () {
+  var pages = {'알루미늄제교량난간':'bridge-railing.html','디자인형울타리':'design-fence.html','금속제기타울타리':'metal-other-fence.html','알루미늄제도로중앙분리대':'aluminum-median-barrier.html','차선분리대':'lane-divider.html','창살형울타리':'bar-fence.html'};
+  function productLinks(container, names, category) {
+    names.split(/\s*\+\s*/).forEach(function(name, index) {
+      if(index) container.appendChild(document.createTextNode(' + '));
+      var page = pages[category];
+      if(!page) { container.appendChild(document.createTextNode(name)); return; }
+      var link = document.createElement('a');
+      link.className='case-product-jump'; link.textContent=name;
+      link.href=page+'#product='+encodeURIComponent(name);
+      container.appendChild(link);
+    });
+  }
+  document.querySelectorAll('.case-open').forEach(function(button) {
+    var paragraph=button.querySelector('.case-info p');
+    if(!paragraph || !button.dataset.prod) return;
+    var count=paragraph.textContent.match(/시공사진\s*\d+장/);
+    paragraph.textContent='적용제품 ';
+    productLinks(paragraph, button.dataset.prod, button.dataset.cat);
+    if(count) paragraph.appendChild(document.createTextNode(' · '+count[0]));
+  });
+  document.addEventListener('click', function(event) {
+    var button=event.target.closest('.case-open');
+    if(!button || event.target.closest('.case-product-jump')) return;
+    var modalProduct=document.getElementById('modalProd');
+    if(!modalProduct) return;
+    modalProduct.classList.remove('case-product-jump');
+    modalProduct.textContent='';
+    productLinks(modalProduct, button.dataset.prod || '', button.dataset.cat);
+  });
+});
+</script>
 </body></html>
