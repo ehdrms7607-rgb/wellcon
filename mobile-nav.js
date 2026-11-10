@@ -67,3 +67,25 @@
     if (window.innerWidth > 980) setMenu(false);
   });
 })();
+
+// Keep the expansion-joint category available in the shared product menus.
+(function () {
+  function addExpansionJoint() {
+    document.querySelectorAll('.product-submenu, .mobile-submenu').forEach(function (menu) {
+      var anchor = menu.querySelector('a[href="metal-other-fence.html"]');
+      if (!anchor || menu.querySelector('a[href="expansion-joint.html"]')) return;
+      var link = document.createElement('a');
+      link.href = 'expansion-joint.html';
+      link.textContent = '신축이음장치';
+      if (location.pathname.split('/').pop() === 'expansion-joint.html') {
+        link.setAttribute('aria-current', 'page');
+      }
+      anchor.insertAdjacentElement('afterend', link);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addExpansionJoint, { once: true });
+  } else {
+    addExpansionJoint();
+  }
+})();
