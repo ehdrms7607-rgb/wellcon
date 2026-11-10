@@ -387,7 +387,7 @@ main.product-page-enter .wb-reveal{
     <section class="section">
       <div class="container">
         <div class="catalog-grid">
-<article class="catalog-card"""><img alt="SANTA-475" src="assets/aluminum-median-barrier-new-001.jpg"/><h3><span class="product-model-name">SANTA-475</span><span class="product-sb-badge">SB4</span></h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24782605</strong></p><p class="product-spec">규격 <strong>W2000×H750mm</strong></p></div></article>
+<article class="catalog-card catalog-card-3d"><img alt="SANTA-475" src="assets/aluminum-median-barrier-new-001.jpg"/><h3><span class="product-model-name">SANTA-475</span><span class="product-sb-badge">SB4</span></h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24782605</strong></p><p class="product-spec">규격 <strong>W2000×H750mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=santa-475" aria-label="SANTA-475 3D로 보기">3D로 보기 <span>→</span></a></article>
         </div>
       </div>
     </section>
@@ -448,9 +448,9 @@ document.addEventListener("DOMContentLoaded",()=>{
       window.open("https://shop.g2b.go.kr/","_blank","noopener");
     };
 
-    card.addEventListener("click",openG2B);
+    card.addEventListener("click",e=>{if(!e.target.closest(".product-3d-link"))openG2B();});
     card.addEventListener("keydown",e=>{
-      if(e.key==="Enter"||e.key===" "){
+      if(e.target===card&&(e.key==="Enter"||e.key===" ")){
         e.preventDefault();
         openG2B();
       }
