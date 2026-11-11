@@ -403,11 +403,11 @@ main.product-page-enter .wb-reveal{
     <section class="section">
       <div class="container">
         <div class="catalog-grid">
-<article class="catalog-card""><img alt="WC-009VF" src="assets/bar-fence-new-001.jpg"/><h3>WC-009VF</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>23681577</strong></p><p class="product-spec">규격 <strong>W3000×H2700mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WC-27VF01" src="assets/bar-fence-new-002.png"/><h3>WC-27VF01</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24893176</strong></p><p class="product-spec">규격 <strong>W2500×H2700mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WC-24VF01" src="assets/bar-fence-new-003.jpg"/><h3>WC-24VF01</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24964489</strong></p><p class="product-spec">규격 <strong>W2000×H2400mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WC-27VF03" src="assets/bar-fence-new-004.jpg"/><h3>WC-27VF03</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>25494932</strong></p><p class="product-spec">규격 <strong>W2500×H2700mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WC-27VF05" src="assets/bar-fence-new-005.jpg"/><h3>WC-27VF05</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>26157852</strong></p><p class="product-spec">규격 <strong>W2500×H2700mm</strong></p></div></article>
+<article class="catalog-card catalog-card-3d"><img alt="WC-009VF" src="assets/bar-fence-new-001.jpg"/><h3>WC-009VF</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>23681577</strong></p><p class="product-spec">규격 <strong>W3000×H2700mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wc-009vf" aria-label="WC-009VF 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WC-27VF01" src="assets/bar-fence-new-002.png"/><h3>WC-27VF01</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24893176</strong></p><p class="product-spec">규격 <strong>W2500×H2700mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wc-27vf01" aria-label="WC-27VF01 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WC-24VF01" src="assets/bar-fence-new-003.jpg"/><h3>WC-24VF01</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24964489</strong></p><p class="product-spec">규격 <strong>W2000×H2400mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wc-24vf01" aria-label="WC-24VF01 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WC-27VF03" src="assets/bar-fence-new-004.jpg"/><h3>WC-27VF03</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>25494932</strong></p><p class="product-spec">규격 <strong>W2500×H2700mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wc-27vf03" aria-label="WC-27VF03 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WC-27VF05" src="assets/bar-fence-new-005.jpg"/><h3>WC-27VF05</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>26157852</strong></p><p class="product-spec">규격 <strong>W2500×H2700mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wc-27vf05" aria-label="WC-27VF05 3D로 보기">3D로 보기 <span>→</span></a></article>
         </div>
       </div>
     </section>
@@ -468,9 +468,9 @@ document.addEventListener("DOMContentLoaded",()=>{
       window.open("https://shop.g2b.go.kr/","_blank","noopener");
     };
 
-    card.addEventListener("click",openG2B);
+    card.addEventListener("click",e=>{if(!e.target.closest(".product-3d-link"))openG2B();});
     card.addEventListener("keydown",e=>{
-      if(e.key==="Enter"||e.key===" "){
+      if(e.target===card&&(e.key==="Enter"||e.key===" ")){
         e.preventDefault();
         openG2B();
       }
