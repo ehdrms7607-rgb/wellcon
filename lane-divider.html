@@ -387,8 +387,8 @@ main.product-page-enter .wb-reveal{
     <section class="section">
       <div class="container">
         <div class="catalog-grid">
-<article class="catalog-card""><img alt="DONCARS-03" src="assets/lane-divider-new-001.jpg"/><h3>DONCARS-03</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24707717</strong></p><p class="product-spec">규격 <strong>Φ200×2000×970mm</strong></p></div></article>
-<article class="catalog-card""><img alt="DONCARS-02" src="assets/lane-divider-new-002.jpg"/><h3>DONCARS-02</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24707716</strong></p><p class="product-spec">규격 <strong>Φ200×2000×970mm</strong></p></div></article>
+<article class="catalog-card catalog-card-3d"><img alt="DONCARS-03" src="assets/lane-divider-new-001.jpg"/><h3>DONCARS-03</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24707717</strong></p><p class="product-spec">규격 <strong>Φ200×2000×970mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=doncars-03" aria-label="DONCARS-03 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="DONCARS-02" src="assets/lane-divider-new-002.jpg"/><h3>DONCARS-02</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24707716</strong></p><p class="product-spec">규격 <strong>Φ200×2000×970mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=doncars-02" aria-label="DONCARS-02 3D로 보기">3D로 보기 <span>→</span></a></article>
         </div>
       </div>
     </section>
@@ -449,9 +449,9 @@ document.addEventListener("DOMContentLoaded",()=>{
       window.open("https://shop.g2b.go.kr/","_blank","noopener");
     };
 
-    card.addEventListener("click",openG2B);
+    card.addEventListener("click",e=>{if(!e.target.closest(".product-3d-link"))openG2B();});
     card.addEventListener("keydown",e=>{
-      if(e.key==="Enter"||e.key===" "){
+      if(e.target===card&&(e.key==="Enter"||e.key===" ")){
         e.preventDefault();
         openG2B();
       }
