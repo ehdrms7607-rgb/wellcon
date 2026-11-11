@@ -392,12 +392,12 @@ main.product-page-enter .wb-reveal{
     <section class="section">
       <div class="container">
         <div class="catalog-grid">
-<article class="catalog-card""><img alt="WCF-001STONE" src="assets/metal-other-fence-new-001.jpg"/><h3>WCF-001STONE</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24047679</strong></p><p class="product-spec">규격 <strong>W2000×H1200mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WCF-801" src="assets/metal-other-fence-new-002.jpg"/><h3>WCF-801</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24032892</strong></p><p class="product-spec">규격 <strong>W2000×H600mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WCF-805" src="assets/metal-other-fence-new-003.jpg"/><h3>WCF-805</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>26213795</strong></p><p class="product-spec">규격 <strong>W2000×H600mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WCF-806" src="assets/metal-other-fence-new-004.jpg"/><h3>WCF-806</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>26213796</strong></p><p class="product-spec">규격 <strong>W2000×H600mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WC-004-ST" src="assets/metal-other-fence-new-005.jpg"/><h3>WC-004-ST</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24032891</strong></p><p class="product-spec">규격 <strong>W1200×H900mm</strong></p></div></article>
-<article class="catalog-card""><img alt="WCF-007STONE" src="assets/metal-other-fence-new-006.jpg"/><h3>WCF-007STONE</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>26216533</strong></p><p class="product-spec">규격 <strong>W2000×H1200mm</strong></p></div></article>
+<article class="catalog-card catalog-card-3d"><img alt="WCF-001STONE" src="assets/metal-other-fence-new-001.jpg"/><h3>WCF-001STONE</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24047679</strong></p><p class="product-spec">규격 <strong>W2000×H1200mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wcf-001stone" aria-label="WCF-001STONE 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WCF-801" src="assets/metal-other-fence-new-002.jpg"/><h3>WCF-801</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24032892</strong></p><p class="product-spec">규격 <strong>W2000×H600mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wcf-801" aria-label="WCF-801 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WCF-805" src="assets/metal-other-fence-new-003.jpg"/><h3>WCF-805</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>26213795</strong></p><p class="product-spec">규격 <strong>W2000×H600mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wcf-805" aria-label="WCF-805 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WCF-806" src="assets/metal-other-fence-new-004.jpg"/><h3>WCF-806</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>26213796</strong></p><p class="product-spec">규격 <strong>W2000×H600mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wcf-806" aria-label="WCF-806 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WC-004-ST" src="assets/metal-other-fence-new-005.jpg"/><h3>WC-004-ST</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>24032891</strong></p><p class="product-spec">규격 <strong>W1200×H900mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wc-004-st" aria-label="WC-004-ST 3D로 보기">3D로 보기 <span>→</span></a></article>
+<article class="catalog-card catalog-card-3d"><img alt="WCF-007STONE" src="assets/metal-other-fence-new-006.jpg"/><h3>WCF-007STONE</h3><div class="product-meta-row"><p class="product-id-number">식별번호 <strong>26216533</strong></p><p class="product-spec">규격 <strong>W2000×H1200mm</strong></p></div><a class="product-3d-link" href="product-3d.html?model=wcf-007stone" aria-label="WCF-007STONE 3D로 보기">3D로 보기 <span>→</span></a></article>
         </div>
       </div>
     </section>
@@ -458,9 +458,9 @@ document.addEventListener("DOMContentLoaded",()=>{
       window.open("https://shop.g2b.go.kr/","_blank","noopener");
     };
 
-    card.addEventListener("click",openG2B);
+    card.addEventListener("click",e=>{if(!e.target.closest(".product-3d-link"))openG2B();});
     card.addEventListener("keydown",e=>{
-      if(e.key==="Enter"||e.key===" "){
+      if(e.target===card&&(e.key==="Enter"||e.key===" ")){
         e.preventDefault();
         openG2B();
       }
