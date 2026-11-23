@@ -496,3 +496,11 @@
 .product-type-card[href="endbox.html"]:hover .thumb img{
   transform:none !important;
 }
+
+/* Remove only the old certification/copyright image in site footers. */
+html body footer img.footer-cert-image,
+html body footer img[src*="footer-certifications.png"],
+html body .footer img.footer-cert-image,
+html body .footer img[src*="footer-certifications.png"] {
+  display: none !important;
+}
