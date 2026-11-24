@@ -619,17 +619,146 @@ footer a,.site-footer a{
 }
 </style>
 <script defer src="wellcon-boundary.js"></script>
+<style id="intro-skip-cursor">
+#introVideo #introSkip {
+  position: absolute;
+  inset: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) auto auto;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 58px !important;
+  height: 58px !important;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255,255,255,.8);
+  color: #fff;
+  background: rgba(0,0,0,.55);
+  font: 700 14px/1 "Noto Sans KR", sans-serif;
+  letter-spacing: 0;
+  transition: color .2s ease, background-color .2s ease;
+  transform: none;
+}
+#introVideo #introSkip:hover,
+#introVideo #introSkip:focus-visible {
+  background: #fff;
+  color: #111;
+}
+#introVideo #introSkip:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+#introVideo #introSkip.is-following:not(:focus-visible) {
+  inset: 0 auto auto 0;
+  transform: translate3d(calc(var(--skip-x) - 50%), calc(var(--skip-y) - 50%), 0);
+  will-change: transform;
+}
+@media (max-width: 640px) {
+  #introVideo #introSkip { width: 48px !important; height: 48px !important; }
+}
+</style>
+<style id="wellcon-cinematic-intro">
+#introVideo {
+  background: #050506;
+  transition: opacity .9s cubic-bezier(.32,.04,.18,1), visibility .9s;
+  isolation: isolate;
+}
+#introVideo #introVideoPlayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(10% 39% 10%);
+  opacity: .42;
+  transition: clip-path 1.2s cubic-bezier(.25,.65,.25,1), opacity 1s ease;
+}
+#introVideo.is-playing #introVideoPlayer {
+  clip-path: inset(0);
+  opacity: 1;
+}
+#introVideo .intro-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  color: #fff;
+  text-align: center;
+  transition: opacity .45s ease, visibility .45s;
+}
+#introVideo.is-playing .intro-cover { opacity: 0; visibility: hidden; }
+#introVideo .intro-wordmark {
+  font: 800 clamp(44px, 13vw, 170px)/1 Arial,sans-serif;
+  letter-spacing: .055em;
+  color: #fff;
+}
+@supports (-webkit-text-stroke: 1px white) {
+  #introVideo .intro-wordmark { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.75); }
+}
+#introVideo .intro-cover-controls {
+  position: absolute;
+  bottom: max(13%, calc(env(safe-area-inset-bottom) + 30px));
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+#introVideo #introPlay {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: #080809aa;
+  color: #fff;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: background-color .28s ease, color .28s ease;
+}
+#introVideo #introPlay:is(:hover,:focus-visible) { background: #fff; color: #111; }
+#introVideo #introPlay:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+#introVideo.is-playing #introPlay { pointer-events: none; }
+#introVideo .intro-cover-controls p { margin: 0; color: #dedede; font-size: 13px; letter-spacing: .08em; }
+#introVideo:not(.is-playing) .intro-progress { opacity: 0; }
+#introVideo #introSkip:not(.is-following) {
+  inset: auto max(20px, env(safe-area-inset-right)) max(25px, calc(env(safe-area-inset-bottom) + 10px)) auto;
+}
+#introVideo #introSkip.is-following:focus-visible {
+  inset: auto max(20px, env(safe-area-inset-right)) max(25px, calc(env(safe-area-inset-bottom) + 10px)) auto;
+}
+@media (max-width: 640px) {
+  #introVideo #introVideoPlayer { clip-path: inset(13% 23% 13%); }
+  #introVideo #introPlay { width: 56px; height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #introVideo, #introVideo #introVideoPlayer, #introVideo .intro-cover { transition: none; }
+}
+</style>
 </head>
 <body class="home-landing">
 <div class="intro-video" id="introVideo" aria-label="웰콘 인트로 영상">
-  <video id="introVideoPlayer" autoplay muted playsinline preload="auto">
-    <source src="assets/wellcon-intro.mp4" type="video/mp4">
+  <video id="introVideoPlayer" muted playsinline preload="auto">
+    <source src="https://ehdrms7607-rgb.github.io/wellcon/assets/wellcon-intro.mp4" type="video/mp4">
   </video>
-  <button class="intro-skip" id="introSkip" type="button" aria-label="인트로 영상 건너뛰기">SKIP <span aria-hidden="true">→</span></button>
+  <div class="intro-cover">
+    <div class="intro-wordmark">WELLCON</div>
+    <div class="intro-cover-controls">
+      <button id="introPlay" type="button" aria-label="웰콘 인트로 영상 재생">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><path d="M6 3.5v13l11-6.5z" fill="currentColor"/></svg>
+      </button>
+      <p id="introPlayHint" aria-live="polite">웰콘 영상 보기</p>
+    </div>
+  </div>
+  <button class="intro-skip" id="introSkip" type="button" aria-label="인트로 영상 건너뛰기">SKIP</button>
   <div class="intro-progress" aria-hidden="true"><span id="introProgressBar"></span></div>
 </div>
 <header class="site-header">
-  <a class="brand brand-logo" href="index.html" aria-label="웰콘 홈"><img src="assets/wellcon-logo.png" alt="WELLCON 웰콘 로고"></a>
+  <a class="brand brand-logo" href="index.html" aria-label="웰콘 홈"><img src="https://ehdrms7607-rgb.github.io/wellcon/assets/wellcon-logo.png" alt="WELLCON 웰콘 로고"></a>
   <nav class="desktop-nav" aria-label="주요 메뉴"><a href="company.html">회사소개</a><div class="product-menu-wrap">
 <a href="bridge-railing.html">제품소개</a>
 <div class="product-submenu" aria-label="제품소개 하위 메뉴">
@@ -747,7 +876,7 @@ footer a,.site-footer a{
   </section>
 </main>
 
-<footer class="footer simple-footer"><div class="container footer-cert-row"><img class="footer-cert-image" src="assets/footer-certifications.png" alt="웰콘 인증 및 저작권 정보"><div aria-label="웰콘 연락처" class="footer-contact-info">
+<footer class="footer simple-footer"><div class="container footer-cert-row"><img class="footer-cert-image" src="https://ehdrms7607-rgb.github.io/wellcon/assets/footer-certifications.png" alt="웰콘 인증 및 저작권 정보"><div aria-label="웰콘 연락처" class="footer-contact-info">
 <div><span>사무실전화</span><a href="tel:0314631033">031-463-1033</a></div>
 <div><span>팩스</span><strong>031-463-1035</strong></div>
 <div class="footer-contact-mobile"><span>상시연락</span><div><a href="tel:01037622373">010-3762-2373</a><a href="tel:01032174292">010-3217-4292</a><a href="tel:01091393304">010-9139-3304</a></div></div>
@@ -842,7 +971,9 @@ document.addEventListener('DOMContentLoaded', function(){
     const video=document.getElementById('introVideoPlayer');
     const skip=document.getElementById('introSkip');
     const progress=document.getElementById('introProgressBar');
-    if(!intro || !video || !skip) return;
+    const play=document.getElementById('introPlay');
+    const hint=document.getElementById('introPlayHint');
+    if(!intro || !video || !skip || !play) return;
 
     const introSeenKey='wellconIntroSeenSessionV1';
     const hasSeenIntro=()=>{
@@ -857,7 +988,7 @@ document.addEventListener('DOMContentLoaded', function(){
       intro.classList.add('is-hidden');
       document.body.classList.remove('intro-playing');
       if(remember) markIntroSeen();
-      window.setTimeout(()=>{ video.pause(); intro.remove(); },700);
+      window.setTimeout(()=>{ video.pause(); intro.remove(); },930);
     };
 
     if(hasSeenIntro()){
@@ -872,20 +1003,53 @@ document.addEventListener('DOMContentLoaded', function(){
     video.setAttribute('playsinline','');
     video.setAttribute('webkit-playsinline','');
 
-    const tryPlay=()=>{
-      const playPromise=video.play();
-      if(playPromise) playPromise.catch(()=>{ skip.classList.add('is-prominent'); });
-    };
+    play.addEventListener('click',async()=>{
+      if(play.disabled || intro.classList.contains('is-hidden')) return;
+      play.disabled=true;
+      try {
+        await video.play();
+        if(intro.classList.contains('is-hidden')) return;
+        if(document.activeElement===play) skip.focus({preventScroll:true});
+        intro.classList.add('is-playing');
+      } catch(_) {
+        play.disabled=false;
+        if(hint) hint.textContent='재생할 수 없어요. 다시 누르거나 SKIP을 선택하세요.';
+      }
+    });
 
+    const followSkip=window.matchMedia('(any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference)');
+    let skipFrame=0, pointerX=0, pointerY=0;
+    const stopFollowing=()=>{
+      if(skipFrame) window.cancelAnimationFrame(skipFrame);
+      skipFrame=0;
+      skip.classList.remove('is-following');
+    };
+    const paintSkip=()=>{
+      skipFrame=0;
+      if(intro.classList.contains('is-hidden') || skip.matches(':focus-visible')) return;
+      const bounds=intro.getBoundingClientRect();
+      skip.style.setProperty('--skip-x',(pointerX-bounds.left)+'px');
+      skip.style.setProperty('--skip-y',(pointerY-bounds.top)+'px');
+      skip.classList.add('is-following');
+    };
+    intro.addEventListener('pointermove',(event)=>{
+      if(!intro.classList.contains('is-playing') || !followSkip.matches || event.pointerType!=='mouse' || skip.matches(':focus-visible')) return;
+      pointerX=event.clientX;
+      pointerY=event.clientY;
+      if(!skipFrame) skipFrame=window.requestAnimationFrame(paintSkip);
+    },{passive:true});
+    intro.addEventListener('pointerleave',stopFollowing);
+    intro.addEventListener('pointerdown',(event)=>{
+      if(event.pointerType!=='mouse') stopFollowing();
+    });
+    window.addEventListener('resize',stopFollowing);
+    followSkip.addEventListener?.('change',stopFollowing);
     skip.addEventListener('click',()=>closeIntro(true));
     video.addEventListener('ended',()=>closeIntro(true));
     video.addEventListener('error',()=>closeIntro(false));
-    video.addEventListener('canplay',tryPlay,{once:true});
-    document.addEventListener('touchstart',tryPlay,{once:true,passive:true});
     video.addEventListener('timeupdate',()=>{
       if(progress && video.duration) progress.style.width=((video.currentTime/video.duration)*100)+'%';
     });
-    tryPlay();
   })();
   </script>
 </body></html>
