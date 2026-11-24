@@ -739,6 +739,28 @@ footer a,.site-footer a{
   #introVideo, #introVideo #introVideoPlayer, #introVideo .intro-cover { transition: none; }
 }
 </style>
+<style id="wellcon-home-hero-photo">
+body.home-landing main.concept-b > section.b-hero {
+  background:
+    linear-gradient(90deg, rgba(9,17,27,.55), rgba(9,17,27,.24) 47%, transparent 80%),
+    linear-gradient(0deg, rgba(9,17,27,.21), transparent 48%),
+    #203347 url("assets/wellcon-main-building.png") center 52% / cover no-repeat !important;
+}
+body.home-landing main.concept-b > section.b-hero::before {
+  background: none !important;
+}
+@media (max-width: 760px) {
+  body.home-landing main.concept-b > section.b-hero {
+    background:
+      linear-gradient(180deg, rgba(9,17,27,.48), rgba(9,17,27,.17) 45%, transparent 70%),
+      #203347 url("assets/wellcon-main-building.png") 94% 52% / cover no-repeat !important;
+    align-items: flex-start;
+  }
+  body.home-landing main.concept-b > section.b-hero .b-hero-inner {
+    margin-top: 0;
+  }
+}
+</style>
 </head>
 <body class="home-landing">
 <div class="intro-video" id="introVideo" aria-label="웰콘 인트로 영상">
