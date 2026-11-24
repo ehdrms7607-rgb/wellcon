@@ -570,3 +570,9 @@ html body .site-header .brand-logo img {
     max-height: 48px;
   }
 }
+
+/* Scale only the shared top bar, including its menus. */
+html body header.site-header {
+  zoom: 1.25 !important;
+  box-sizing: border-box;
+}
