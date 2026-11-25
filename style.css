@@ -614,3 +614,23 @@ html body header.site-header {
   .wc-company-bar ul { gap: 0 14px; }
   .wc-company-bar a { padding-block: 10px; font-size: 13px; }
 }
+
+/* Enlarge a secondary navigation item without shifting its neighbors. */
+@media (hover: hover) and (pointer: fine) {
+  .cp-page-nav > ul > li > a {
+    transition: transform 180ms ease-out, color 180ms ease-out;
+  }
+  .cp-page-nav > ul > li > a:hover {
+    color: #ea232a;
+    transform: scale(1.1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cp-page-nav > ul > li > a { transition: none; }
+}
+
+/* Keep the current secondary menu item in WELLCON red on all devices. */
+.cp-page-nav > ul > li > a[aria-current="page"] {
+  color: #ea232a;
+  border-bottom-color: currentColor;
+}
