@@ -338,3 +338,41 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup, { once: true });
   else setup();
 })();
+
+// Touch feedback for buttons and navigation; leave mouse and keyboard input alone.
+(function () {
+  var selector = 'button, [role="button"], input[type="button"], input[type="submit"], a.btn, a.header-cta, .site-header a, #mobileMenu a, .cp-page-nav a';
+  var lastTouch = null;
+  var timer = new WeakMap();
+  var style = document.createElement('style');
+  style.textContent =
+    '.wc-touch-feedback{filter:brightness(.84)!important}' +
+    '@media(prefers-reduced-motion:no-preference){.wc-touch-feedback{animation:wc-touch-flash 160ms ease-out}}' +
+    '@keyframes wc-touch-flash{from{filter:brightness(.74)}to{filter:brightness(.96)}}';
+  document.head.appendChild(style);
+
+  function control(event) {
+    return event.target instanceof Element ? event.target.closest(selector) : null;
+  }
+  document.addEventListener('pointerdown', function (event) {
+    lastTouch = event.pointerType === 'touch' ? control(event) : null;
+  }, { capture: true, passive: true });
+  document.addEventListener('pointercancel', function () {
+    lastTouch = null;
+  }, { capture: true, passive: true });
+
+  window.addEventListener('click', function (event) {
+    var button = control(event);
+    var touch = event.pointerType === 'touch' ||
+      (!event.pointerType && event.detail > 0 && lastTouch === button);
+    lastTouch = null;
+    if (!touch || !button || button.matches(':disabled, [aria-disabled="true"]')) return;
+    if (typeof navigator.vibrate === 'function') navigator.vibrate(12);
+    clearTimeout(timer.get(button));
+    button.classList.add('wc-touch-feedback');
+    timer.set(button, setTimeout(function () {
+      button.classList.remove('wc-touch-feedback');
+      timer.delete(button);
+    }, 160));
+  }, true);
+})();
