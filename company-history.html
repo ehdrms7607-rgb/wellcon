@@ -803,7 +803,16 @@ body {
   display: flex;
   flex-direction: column;
 }
-body > main.concept-b { flex: 1 0 auto; }
+body > main.concept-b {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+body > main.concept-b > section.cp-history {
+  flex: 1 0 auto;
+  margin: 0;
+  width: 100%;
+}
 body > footer.simple-footer { flex: 0 0 auto; }
 </style>
 <style id="company-page-navigation">
