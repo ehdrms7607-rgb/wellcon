@@ -842,6 +842,22 @@ body > footer.simple-footer { flex: 0 0 auto; }
   .cp-page-nav a { padding-block: 10px; font-size: 13px; }
 }
 </style>
+<style id="wellcon-organization-design">
+.cp-org{max-width:1060px;margin:42px auto 8px;text-align:center}
+.cp-org .cp-org-chief{min-width:180px;padding:17px 26px;background:#171717;border-radius:10px;font-size:18px;letter-spacing:-.02em}
+.cp-org .cp-org-chief::after,.cp-org .cp-org-branches::before,.cp-org .cp-org-branches>li::before{border-color:#bbb}
+.cp-org .cp-org-branches>li{border:0;border-radius:10px;background:#fff;box-shadow:inset 0 3px #da1e34,0 6px 20px #1717170d}
+.cp-org .cp-org-branches h3{background:none;color:#171717;padding:20px 8px 11px;font-size:clamp(14px,2vw,18px);font-weight:750}
+.cp-org .cp-org-branches>li ul{padding:0 10px 16px}
+.cp-org .cp-org-branches>li li{padding:5px 0;color:#555;line-height:1.45;word-break:keep-all}
+@media(max-width:700px){
+ .cp-org{margin-top:28px}
+ .cp-org .cp-org-branches{grid-template-columns:repeat(2,minmax(0,1fr));padding-top:28px;gap:12px}
+ .cp-org .cp-org-branches::before,.cp-org .cp-org-branches>li::before{display:none}
+ .cp-org .cp-org-chief::after{height:20px}
+ .cp-org .cp-org-branches>li li{font-size:13px}
+}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -898,7 +914,12 @@ body > footer.simple-footer { flex: 0 0 auto; }
 
 <main class="concept-b">
 <nav class="cp-page-nav" aria-label="회사소개 페이지"><ul><li><a href="company.html">회사소개</a></li><li><a href="company-history.html">회사 연혁</a></li><li><a href="company-business.html">사업 부문</a></li><li><a href="company-organization.html" aria-current="page">회사 조직도</a></li><li><a href="company-facilities.html">공장 설비 시설</a></li><li><a href="company-certifications.html">특허증</a></li><li><a href="company-design-registrations.html">디자인등록증</a></li><li><a href="company-projects.html">공사실적</a></li></ul></nav>
-<section class="cp-section"><small>ORGANIZATION</small><h2>회사 조직도</h2><div class="cp-org"><div class="cp-org-chief">대표이사</div><ul class="cp-org-branches"><li><h3>연구전담부서</h3><ul><li>연구개발</li></ul></li><li><h3>영업부</h3><ul><li>영업관리</li><li>현장관리</li><li>납품관리</li><li>계약관리</li></ul></li><li><h3>관리부</h3><ul><li>제품구매</li><li>영업지원</li><li>조달관리</li><li>회계관리</li></ul></li><li><h3>생산부</h3><ul><li>제품생산</li><li>출하관리</li><li>품질관리</li><li>안전관리자</li></ul></li></ul></div></section>
+<section class="cp-section"><small>ORGANIZATION</small><h2>회사 조직도</h2><div class="cp-org"><div class="cp-org-chief">대표이사</div><ul class="cp-org-branches">
+<li><h3>연구전담부서</h3><ul><li>난간·울타리 연구개발</li><li>제품 설계</li><li>성능 개선</li></ul></li>
+<li><h3>영업부</h3><ul><li>고객 상담·견적</li><li>계약 관리</li><li>현장·납품 관리</li></ul></li>
+<li><h3>관리부</h3><ul><li>자재·제품 구매</li><li>조달 업무</li><li>영업 지원</li><li>회계</li></ul></li>
+<li><h3>생산부</h3><ul><li>제품 제작</li><li>품질 검사</li><li>출하 관리</li><li>작업 안전 관리</li></ul></li>
+</ul></div></section>
 </main>
 
 <footer class="footer simple-footer"><div class="container footer-cert-row"><div aria-label="웰콘 연락처" class="footer-contact-info">
