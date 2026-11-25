@@ -841,7 +841,27 @@ main.concept-b > section.cp-history .cp-history-current .cp-history-date {
   .wc-project-intro { padding-right: 0; }
   .wc-project-continuation > .wc-project-kicker { padding-left: 0; margin-bottom: 0; }
 }
-@media (max-width: 480px) { .wc-project-references { width: calc(100% - 22px); } }
+@media (max-width: 480px) {
+  .wc-project-references { width: calc(100% - 16px); }
+  .wc-project-references .wc-project-panel { padding-inline: 6px; }
+  .wc-project-references .wc-project-table { padding-inline: 4px; }
+  .wc-project-references .wc-project-table table {
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .wc-project-table col:nth-child(1) { width: 12%; }
+  .wc-project-table col:nth-child(2) { width: 21%; }
+  .wc-project-table col:nth-child(3) { width: 35%; }
+  .wc-project-table col:nth-child(4) { width: 13%; }
+  .wc-project-table col:nth-child(5) { width: 19%; }
+  .wc-project-references .wc-project-table :is(th, td) {
+    padding: 8px 3px;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+}
 </style>
 <style id="company-footer-layout">
 html { background: #fff; }
