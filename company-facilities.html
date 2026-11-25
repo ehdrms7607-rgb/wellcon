@@ -842,6 +842,33 @@ body > footer.simple-footer { flex: 0 0 auto; }
   .cp-page-nav a { padding-block: 10px; font-size: 13px; }
 }
 </style>
+<style id="wellcon-facility-background">
+body > main.concept-b {
+  display: flex;
+  flex-direction: column;
+}
+main.concept-b > .cp-section.cp-equipment {
+  flex: 1 0 auto;
+  margin: 0;
+  width: 100%;
+  padding-inline: max(7%, calc((100% - 1200px) / 2));
+  color: #fff;
+  background: #263747
+    linear-gradient(180deg, rgba(10,18,28,.67) 0%, rgba(10,18,28,.50) 24%, rgba(10,18,28,.17) 55%, rgba(10,18,28,.72) 100%);
+  background-image:
+    linear-gradient(180deg, rgba(10,18,28,.67) 0%, rgba(10,18,28,.50) 24%, rgba(10,18,28,.17) 55%, rgba(10,18,28,.72) 100%),
+    url("assets/company-profile/facility-background.webp");
+  background-size: cover;
+  background-position: 62% 49%;
+}
+main.concept-b > .cp-equipment > :is(small, h2),
+main.concept-b > .cp-equipment .cp-equipment-site :is(h3, dt, dd, strong) {
+  color: #fff;
+}
+@media (max-width: 640px) {
+  main.concept-b > .cp-section.cp-equipment { background-position: 69% center; }
+}
+</style>
 </head>
 <body>
 <header class="site-header">
