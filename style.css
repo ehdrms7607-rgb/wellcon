@@ -634,3 +634,43 @@ html body header.site-header {
   color: #ea232a;
   border-bottom-color: currentColor;
 }
+
+/* Keep the section menu directly below the measured header on all screens. */
+html body.wc-subnav-fixed > header.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  inset-inline: 0;
+  z-index: 59;
+}
+body.wc-subnav-fixed > .wc-fixed-subnav {
+  position: fixed;
+  top: var(--wc-header-bottom, 80px);
+  inset-inline: 0;
+  z-index: 58;
+  padding: 0 7vw !important;
+  background: #fff;
+}
+body.wc-subnav-fixed main > .wc-subnav-spacer + .cp-intro {
+  padding-top: clamp(44px, 7vw, 94px);
+}
+@media (max-width: 800px) {
+  body.wc-subnav-fixed > .wc-fixed-subnav {
+    padding: 0 !important;
+    z-index: 999;
+  }
+  body.wc-subnav-fixed > .wc-fixed-subnav > ul {
+    flex-wrap: nowrap;
+    gap: 16px;
+    max-width: none;
+    padding-inline: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  body.wc-subnav-fixed > .wc-fixed-subnav > ul::-webkit-scrollbar { display: none; }
+  body.wc-subnav-fixed > .wc-fixed-subnav > ul > li { flex: none; }
+  body.wc-subnav-fixed > .wc-fixed-subnav > ul > li > a {
+    white-space: nowrap;
+    padding: 11px 2px;
+    font-size: 13px;
+  }
+}

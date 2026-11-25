@@ -290,3 +290,51 @@
     '}}';
   document.head.appendChild(style);
 })();
+
+// Dock the secondary navigation below the shared header.
+(function () {
+  function setup() {
+    var header = document.querySelector('body > header.site-header');
+    var nav = document.querySelector('main > .cp-page-nav');
+    if (!header || !nav) return;
+    var mobile = window.matchMedia('(max-width: 800px)');
+    var spacer = document.createElement('div');
+    spacer.className = 'wc-subnav-spacer';
+    spacer.setAttribute('aria-hidden', 'true');
+    nav.replaceWith(spacer);
+    header.after(nav);
+    nav.classList.add('wc-fixed-subnav');
+    document.body.classList.add('wc-subnav-fixed');
+
+    function sync() {
+      var bottom = header.getBoundingClientRect().bottom;
+      nav.style.setProperty('--wc-header-bottom', bottom + 'px');
+      var slotTop = spacer.getBoundingClientRect().top + window.scrollY;
+      spacer.style.height = Math.max(0, bottom + nav.getBoundingClientRect().height - slotTop) + 'px';
+    }
+
+    function revealCurrent() {
+      sync();
+      if (!mobile.matches) return;
+      var current = nav.querySelector('a[aria-current="page"]');
+      var list = nav.querySelector('ul');
+      if (!current || !list) return;
+      var item = current.getBoundingClientRect();
+      var area = list.getBoundingClientRect();
+      if (item.right > area.right - 16) list.scrollLeft += item.right - area.right + 16;
+      else if (item.left < area.left + 16) list.scrollLeft += item.left - area.left - 16;
+    }
+
+    revealCurrent();
+    window.addEventListener('resize', sync, { passive: true });
+    window.addEventListener('load', revealCurrent, { once: true });
+    if (mobile.addEventListener) mobile.addEventListener('change', revealCurrent);
+    if ('ResizeObserver' in window) {
+      var observer = new ResizeObserver(sync);
+      observer.observe(header);
+      observer.observe(nav);
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup, { once: true });
+  else setup();
+})();
