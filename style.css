@@ -571,8 +571,46 @@ html body .site-header .brand-logo img {
   }
 }
 
-/* Scale only the shared top bar, including its menus. */
+/* Scale the shared top bar and main content separately. */
+html body main {
+  zoom: 1 !important;
+}
 html body header.site-header {
   zoom: 1.25 !important;
   box-sizing: border-box;
+}
+
+/* Company navigation on shared site pages. */
+
+.wc-company-bar {
+  background: #fff;
+  border-bottom: 1px solid #e6e4e0;
+  padding: var(--wc-company-bar-offset, 0px) 7vw 0;
+}
+.wc-company-bar ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  max-width: 1200px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+.wc-company-bar a {
+  display: block;
+  padding: 13px 2px;
+  color: #494745;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+}
+.wc-company-bar a:is(:hover, [aria-current="page"]) {
+  color: #a42331;
+  border-bottom-color: currentColor;
+}
+.wc-company-bar a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+@media (max-width: 640px) {
+  .wc-company-bar ul { gap: 0 14px; }
+  .wc-company-bar a { padding-block: 10px; font-size: 13px; }
 }

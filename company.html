@@ -795,11 +795,60 @@ main.concept-b > section.cp-history .cp-history-current .cp-history-date {
   pointer-events: none;
 }
 </style>
+<style id="company-footer-layout">
+html { background: #fff; }
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+body > main.concept-b { flex: 1 0 auto; }
+body > footer.simple-footer { flex: 0 0 auto; }
+</style>
+<style id="company-page-navigation">
+.cp-page-nav {
+  background: #fff;
+  border-bottom: 1px solid #e6e4e0;
+  padding: 110px 7vw 0;
+}
+.cp-page-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  max-width: 1200px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+.cp-page-nav a {
+  display: block;
+  padding: 13px 2px;
+  color: #494745;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+}
+.cp-page-nav a:is(:hover, [aria-current="page"]) {
+  color: #a42331;
+  border-bottom-color: currentColor;
+}
+.cp-page-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.cp-page-nav + .cp-intro { padding-top: clamp(44px, 7vw, 94px); }
+.cp-intro img.cp-factory-photo { aspect-ratio: 3 / 1; object-fit: cover; object-position: center 48%; }
+@media (max-width: 760px) { .cp-intro img.cp-factory-photo { aspect-ratio: 2 / 1; } }
+@media (max-width: 640px) {
+  .cp-page-nav { padding: 90px 7vw 0; }
+  .cp-page-nav ul { gap: 0 14px; }
+  .cp-page-nav a { padding-block: 10px; font-size: 13px; }
+}
+</style>
 </head>
 <body>
 <header class="site-header">
   <a class="brand brand-logo" href="index.html" aria-label="웰콘 홈"><img src="assets/wellcon-logo.png" alt="WELLCON 웰콘 로고"></a>
-  <nav class="desktop-nav" aria-label="주요 메뉴"><a href="company.html">회사소개</a><div class="product-menu-wrap">
+  <nav class="desktop-nav" aria-label="주요 메뉴"><div class="product-menu-wrap company-menu-wrap"><a href="company.html">회사소개</a><div class="product-submenu" aria-label="회사소개 하위 메뉴"><a href="company.html" aria-current="page">회사소개</a><a href="company-history.html">회사 연혁</a><a href="company-business.html">사업 부문</a><a href="company-organization.html">회사 조직도</a><a href="company-facilities.html">공장 설비 시설</a><a href="company-certifications.html">인증 및 등록</a><a href="company-projects.html">공사실적</a></div></div><div class="product-menu-wrap">
 <a href="bridge-railing.html">제품소개</a>
 <div class="product-submenu" aria-label="제품소개 하위 메뉴">
 <a href="bridge-railing.html">알루미늄제교량난간</a>
@@ -822,7 +871,7 @@ main.concept-b > section.cp-history .cp-history-current .cp-history-date {
   <div class="header-actions"><a class="btn btn-primary header-cta" href="quote.html">견적문의 <span>→</span></a><button class="menu-btn" id="menuBtn" aria-label="모바일 메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button></div>
 
     <div class="mobile-menu" id="mobileMenu">
-      <a href="company.html">회사소개</a>
+      <div class="mobile-submenu-wrap"><button class="mobile-submenu-toggle" type="button" aria-expanded="false">회사소개 <span aria-hidden="true">⌄</span></button><div class="mobile-submenu"><a href="company.html" aria-current="page">회사소개</a><a href="company-history.html">회사 연혁</a><a href="company-business.html">사업 부문</a><a href="company-organization.html">회사 조직도</a><a href="company-facilities.html">공장 설비 시설</a><a href="company-certifications.html">인증 및 등록</a><a href="company-projects.html">공사실적</a></div></div>
       <div class="mobile-submenu-wrap">
         <button class="mobile-submenu-toggle" type="button" aria-expanded="false">제품소개 <span>⌄</span></button>
         <div class="mobile-submenu">
@@ -849,13 +898,10 @@ main.concept-b > section.cp-history .cp-history-current .cp-history-date {
     </div>
 </header>
 
-<main class="concept-b"><section class="cp-section cp-intro"><small>COMPANY PROFILE</small><h1>회사소개</h1><p class="cp-lead">더 안전한 사회를 위해 약속합니다.</p><p>웰콘은 도로안전시설물을 개발하고 공급합니다. 연구개발과 사회 공헌을 지속하며, 차량과 보행자가 더 안전하게 이동할 수 있는 환경을 만들어갑니다.</p><a href="assets/company-profile/headquarters.webp" target="_blank" rel="noopener"><img loading="lazy" src="assets/company-profile/headquarters.webp" alt="웰콘 본사 건물"></a><dl><div><dt>회사명</dt><dd>주식회사 웰콘</dd></div><div><dt>설립일</dt><dd>2010년 5월 4일</dd></div><div><dt>대표이사</dt><dd>김경영, 임문규</dd></div><div><dt>본사</dt><dd>경기 안양시 동안구 학의로 282 금강펜테리움 B동 1526호</dd></div><div><dt>공장</dt><dd>인천광역시 강화군 강화읍 강화산단로 189</dd></div></dl></section><section class="b-history cp-history"><div class="b-history-head"><small>COMPANY HISTORY</small><h2>회사 연혁</h2><p>2010 — 2026</p></div><div class="cp-history-steps">
-<article class="cp-history-step" style="--step:4"><img src="assets/company-profile/headquarters.webp" alt="" loading="lazy" decoding="async"><h3>웰콘 설립</h3><p>㈜웰콘 설립 · 조달청 MAS 교량난간 등록</p><div class="cp-history-date">2010–2011</div><span class="history-ruler" aria-hidden="true"><i style="--tick-height:9.0px;--tick-hover:11.0px;--tick-delay:0ms"></i><i style="--tick-height:9.9px;--tick-hover:12.3px;--tick-delay:8ms"></i><i style="--tick-height:10.7px;--tick-hover:14.2px;--tick-delay:16ms"></i><i style="--tick-height:11.5px;--tick-hover:16.5px;--tick-delay:24ms"></i><i style="--tick-height:12.0px;--tick-hover:19.0px;--tick-delay:32ms"></i><i style="--tick-height:12.4px;--tick-hover:21.4px;--tick-delay:40ms"></i><i style="--tick-height:12.5px;--tick-hover:23.3px;--tick-delay:48ms"></i><i style="--tick-height:12.4px;--tick-hover:24.6px;--tick-delay:56ms"></i><i style="--tick-height:12.1px;--tick-hover:25.0px;--tick-delay:64ms"></i><i style="--tick-height:11.5px;--tick-hover:24.4px;--tick-delay:72ms"></i><i style="--tick-height:10.8px;--tick-hover:23.0px;--tick-delay:80ms"></i><i style="--tick-height:10.0px;--tick-hover:20.8px;--tick-delay:88ms"></i><i style="--tick-height:9.1px;--tick-hover:18.1px;--tick-delay:96ms"></i><i style="--tick-height:8.2px;--tick-hover:15.2px;--tick-delay:104ms"></i><i style="--tick-height:7.3px;--tick-hover:12.4px;--tick-delay:112ms"></i><i style="--tick-height:6.6px;--tick-hover:10.0px;--tick-delay:120ms"></i><i style="--tick-height:6.0px;--tick-hover:8.4px;--tick-delay:128ms"></i><i style="--tick-height:5.6px;--tick-hover:7.6px;--tick-delay:136ms"></i></span></article>
-<article class="cp-history-step" style="--step:3"><img src="assets/company-profile/certifications-combined.webp" alt="" loading="lazy" decoding="async"><h3>기술과 품질 인증</h3><p>직접생산확인증명서 획득 · 차량방호울타리 실물충돌시험 3건 합격 · 벤처기업 인증 · 특허 4건 취득</p><div class="cp-history-date">2012</div><span class="history-ruler" aria-hidden="true"><i style="--tick-height:5.5px;--tick-hover:7.5px;--tick-delay:0ms"></i><i style="--tick-height:5.6px;--tick-hover:8.0px;--tick-delay:8ms"></i><i style="--tick-height:5.9px;--tick-hover:9.3px;--tick-delay:16ms"></i><i style="--tick-height:6.4px;--tick-hover:11.5px;--tick-delay:24ms"></i><i style="--tick-height:7.1px;--tick-hover:14.1px;--tick-delay:32ms"></i><i style="--tick-height:8.0px;--tick-hover:17.0px;--tick-delay:40ms"></i><i style="--tick-height:8.8px;--tick-hover:19.7px;--tick-delay:48ms"></i><i style="--tick-height:9.8px;--tick-hover:21.9px;--tick-delay:56ms"></i><i style="--tick-height:10.6px;--tick-hover:23.5px;--tick-delay:64ms"></i><i style="--tick-height:11.4px;--tick-hover:24.3px;--tick-delay:72ms"></i><i style="--tick-height:11.9px;--tick-hover:24.1px;--tick-delay:80ms"></i><i style="--tick-height:12.3px;--tick-hover:23.1px;--tick-delay:88ms"></i><i style="--tick-height:12.5px;--tick-hover:21.5px;--tick-delay:96ms"></i><i style="--tick-height:12.4px;--tick-hover:19.4px;--tick-delay:104ms"></i><i style="--tick-height:12.1px;--tick-hover:17.2px;--tick-delay:112ms"></i><i style="--tick-height:11.6px;--tick-hover:15.1px;--tick-delay:120ms"></i><i style="--tick-height:10.9px;--tick-hover:13.3px;--tick-delay:128ms"></i><i style="--tick-height:10.1px;--tick-hover:12.1px;--tick-delay:136ms"></i></span></article>
-<article class="cp-history-step" style="--step:2"><img src="assets/company-profile/equipment-1.webp" alt="" loading="lazy" decoding="async"><h3>제조 기반 구축</h3><p>공장등록증 발급 · 차량방호울타리 실물충돌시험 4건 합격 · 특허 6건 취득</p><div class="cp-history-date">2013–2015</div><span class="history-ruler" aria-hidden="true"><i style="--tick-height:9.2px;--tick-hover:11.2px;--tick-delay:0ms"></i><i style="--tick-height:8.3px;--tick-hover:10.7px;--tick-delay:8ms"></i><i style="--tick-height:7.5px;--tick-hover:10.9px;--tick-delay:16ms"></i><i style="--tick-height:6.7px;--tick-hover:11.8px;--tick-delay:24ms"></i><i style="--tick-height:6.1px;--tick-hover:13.1px;--tick-delay:32ms"></i><i style="--tick-height:5.7px;--tick-hover:14.7px;--tick-delay:40ms"></i><i style="--tick-height:5.5px;--tick-hover:16.3px;--tick-delay:48ms"></i><i style="--tick-height:5.6px;--tick-hover:17.7px;--tick-delay:56ms"></i><i style="--tick-height:5.8px;--tick-hover:18.7px;--tick-delay:64ms"></i><i style="--tick-height:6.3px;--tick-hover:19.2px;--tick-delay:72ms"></i><i style="--tick-height:7.0px;--tick-hover:19.2px;--tick-delay:80ms"></i><i style="--tick-height:7.8px;--tick-hover:18.6px;--tick-delay:88ms"></i><i style="--tick-height:8.7px;--tick-hover:17.7px;--tick-delay:96ms"></i><i style="--tick-height:9.6px;--tick-hover:16.6px;--tick-delay:104ms"></i><i style="--tick-height:10.5px;--tick-hover:15.5px;--tick-delay:112ms"></i><i style="--tick-height:11.2px;--tick-hover:14.7px;--tick-delay:120ms"></i><i style="--tick-height:11.9px;--tick-hover:14.2px;--tick-delay:128ms"></i><i style="--tick-height:12.3px;--tick-hover:14.3px;--tick-delay:136ms"></i></span></article>
-<article class="cp-history-step" style="--step:1"><img src="assets/company-profile/equipment-3.webp" alt="" loading="lazy" decoding="async"><h3>생산 역량 확대</h3><p>인천 공장 이전 · 금속구조 및 창호공사업 면허 취득 · 특허 7건 취득 · 차량방호울타리 실물충돌시험 합격 · 창살형울타리 직접생산확인증명서 획득</p><div class="cp-history-date">2016–2020</div><span class="history-ruler" aria-hidden="true"><i style="--tick-height:12.5px;--tick-hover:14.5px;--tick-delay:0ms"></i><i style="--tick-height:12.5px;--tick-hover:14.8px;--tick-delay:8ms"></i><i style="--tick-height:12.2px;--tick-hover:15.6px;--tick-delay:16ms"></i><i style="--tick-height:11.7px;--tick-hover:16.8px;--tick-delay:24ms"></i><i style="--tick-height:11.1px;--tick-hover:18.0px;--tick-delay:32ms"></i><i style="--tick-height:10.3px;--tick-hover:19.3px;--tick-delay:40ms"></i><i style="--tick-height:9.4px;--tick-hover:20.2px;--tick-delay:48ms"></i><i style="--tick-height:8.5px;--tick-hover:20.6px;--tick-delay:56ms"></i><i style="--tick-height:7.6px;--tick-hover:20.5px;--tick-delay:64ms"></i><i style="--tick-height:6.8px;--tick-hover:19.7px;--tick-delay:72ms"></i><i style="--tick-height:6.2px;--tick-hover:18.4px;--tick-delay:80ms"></i><i style="--tick-height:5.7px;--tick-hover:16.6px;--tick-delay:88ms"></i><i style="--tick-height:5.5px;--tick-hover:14.5px;--tick-delay:96ms"></i><i style="--tick-height:5.5px;--tick-hover:12.5px;--tick-delay:104ms"></i><i style="--tick-height:5.8px;--tick-hover:10.8px;--tick-delay:112ms"></i><i style="--tick-height:6.2px;--tick-hover:9.7px;--tick-delay:120ms"></i><i style="--tick-height:6.9px;--tick-hover:9.3px;--tick-delay:128ms"></i><i style="--tick-height:7.7px;--tick-hover:9.7px;--tick-delay:136ms"></i></span></article>
-<article class="cp-history-step cp-history-current" style="--step:0"><img src="assets/company-profile/equipment-4.webp" alt="" loading="lazy" decoding="async"><h3>시험과 기술 성과</h3><p>차량방호울타리 실물충돌시험 3건 및 보도용 방호울타리 실물충돌시험 2건 합격 · 특허 7건 취득 · 조달청 G-PASS 및 KICT 패밀리기업 선정</p><div class="cp-history-date">2021–2026</div><span class="history-ruler" aria-hidden="true"><i style="--tick-height:8.5px;--tick-hover:10.5px;--tick-delay:0ms"></i><i style="--tick-height:9.5px;--tick-hover:11.8px;--tick-delay:8ms"></i><i style="--tick-height:10.3px;--tick-hover:13.8px;--tick-delay:16ms"></i><i style="--tick-height:11.1px;--tick-hover:16.2px;--tick-delay:24ms"></i><i style="--tick-height:11.8px;--tick-hover:18.8px;--tick-delay:32ms"></i><i style="--tick-height:12.2px;--tick-hover:21.2px;--tick-delay:40ms"></i><i style="--tick-height:12.5px;--tick-hover:23.3px;--tick-delay:48ms"></i><i style="--tick-height:12.5px;--tick-hover:24.7px;--tick-delay:56ms"></i><i style="--tick-height:12.3px;--tick-hover:25.2px;--tick-delay:64ms"></i><i style="--tick-height:11.8px;--tick-hover:24.7px;--tick-delay:72ms"></i><i style="--tick-height:11.2px;--tick-hover:23.4px;--tick-delay:80ms"></i><i style="--tick-height:10.4px;--tick-hover:21.2px;--tick-delay:88ms"></i><i style="--tick-height:9.5px;--tick-hover:18.5px;--tick-delay:96ms"></i><i style="--tick-height:8.6px;--tick-hover:15.6px;--tick-delay:104ms"></i><i style="--tick-height:7.7px;--tick-hover:12.8px;--tick-delay:112ms"></i><i style="--tick-height:6.9px;--tick-hover:10.4px;--tick-delay:120ms"></i><i style="--tick-height:6.3px;--tick-hover:8.7px;--tick-delay:128ms"></i><i style="--tick-height:5.8px;--tick-hover:7.8px;--tick-delay:136ms"></i></span></article>
-</div></section><section class="cp-section"><small>BUSINESS SECTORS</small><h2>사업 부문</h2><div class="cp-grid"><article><h3>교량난간·디자인형울타리</h3><p>교량과 보도의 추락을 방지하고, 건물 경계와 어린이보호구역 등에서 보행 공간을 구분합니다.</p></article><article><h3>방호울타리·중앙분리대</h3><p>차량의 도로 이탈과 구조물 충돌을 방지하고 보행 공간을 보호합니다.</p></article><article><h3>금속제기타울타리·창살형울타리</h3><p>공장, 공원, 학교, 도로변의 경계를 구분하는 울타리를 제공합니다.</p></article><article><h3>신축이음·차선분리대·금속데크</h3><p>교량의 움직임을 수용하는 신축이음장치, 차로를 구분하는 분리대, 외부 바닥을 마감하는 금속데크을 공급합니다.</p></article></div></section><section class="cp-section"><small>ORGANIZATION</small><h2>회사 조직도</h2><div class="cp-org"><div class="cp-org-chief">대표이사</div><ul class="cp-org-branches"><li><h3>연구전담부서</h3><ul><li>연구개발</li></ul></li><li><h3>영업부</h3><ul><li>영업관리</li><li>현장관리</li><li>납품관리</li><li>계약관리</li></ul></li><li><h3>관리부</h3><ul><li>제품구매</li><li>영업지원</li><li>조달관리</li><li>회계관리</li></ul></li><li><h3>생산부</h3><ul><li>제품생산</li><li>출하관리</li><li>품질관리</li><li>안전관리자</li></ul></li></ul></div></section><section class="cp-section cp-equipment"><small>FACILITY CAPACITY</small><h2>공장 설비 시설</h2><div class="cp-equipment-grid"><figure><img src="assets/company-profile/equipment-1.webp" alt="반자동 절단기" width="927" height="1359" loading="lazy"><figcaption>반자동 절단기</figcaption></figure><figure><img src="assets/company-profile/equipment-2.webp" alt="밀링머신 / 탭핑머신 / 드릴머신" width="1086" height="1448" loading="lazy"><figcaption>밀링머신 / 탭핑머신 / 드릴머신</figcaption></figure><figure><img src="assets/company-profile/equipment-3.webp" alt="프레스" width="1086" height="1448" loading="lazy"><figcaption>프레스</figcaption></figure><figure><img src="assets/company-profile/equipment-4.webp" alt="조립시설 / 냉방기" width="717" height="1058" loading="lazy"><figcaption>조립시설 / 냉방기</figcaption></figure></div><div class="cp-equipment-site"><h3>부지현황</h3><dl><div><dt>총 부지면적</dt><dd>3,300㎡</dd></div><div><dt>처리시설 면적</dt><dd>503㎡</dd></div><div><dt>보관시설 면적</dt><dd>1,530㎡</dd></div><div><dt>사무동 면적</dt><dd>165㎡</dd></div></dl></div></section><section class="cp-section cp-cert"><div class="cp-cert-title"><div><small>CERTIFICATIONS &amp; REGISTRATIONS</small><h2>인증 및 등록</h2></div></div><img class="cp-cert-sheet" src="assets/company-profile/certifications-combined.webp" alt="보유 인증서, 특허등록증 및 디자인등록증" width="2000" height="1927" loading="lazy"></section><section class="cp-section"><div class="cp-project-sheet"><img src="assets/company-profile/projects-combined.webp" width="2000" height="3375" alt="웰콘 공사실적 목록 전체" loading="lazy" style="width:100%;height:auto!important;max-height:none!important;object-fit:contain!important;cursor:default"><i aria-hidden="true" style="--mark-top:2.519%"></i><i aria-hidden="true" style="--mark-top:35.852%"></i><i aria-hidden="true" style="--mark-top:69.185%"></i></div></section></main>
+<main class="concept-b">
+<nav class="cp-page-nav" aria-label="회사소개 페이지"><ul><li><a href="company.html" aria-current="page">회사소개</a></li><li><a href="company-history.html">회사 연혁</a></li><li><a href="company-business.html">사업 부문</a></li><li><a href="company-organization.html">회사 조직도</a></li><li><a href="company-facilities.html">공장 설비 시설</a></li><li><a href="company-certifications.html">인증 및 등록</a></li><li><a href="company-projects.html">공사실적</a></li></ul></nav>
+<section class="cp-section cp-intro"><small>COMPANY PROFILE</small><h1>회사소개</h1><p class="cp-lead">더 안전한 사회를 위해 약속합니다.</p><p>웰콘은 도로안전시설물을 개발하고 공급합니다. 연구개발과 사회 공헌을 지속하며, 차량과 보행자가 더 안전하게 이동할 수 있는 환경을 만들어갑니다.</p><a href="assets/wellcon-main-building.png" target="_blank" rel="noopener"><img class="cp-factory-photo" width="1086" height="1448" loading="lazy" src="assets/wellcon-main-building.png" alt="웰콘 강화 공장 전경"></a><dl><div><dt>회사명</dt><dd>주식회사 웰콘</dd></div><div><dt>설립일</dt><dd>2010년 5월 4일</dd></div><div><dt>대표이사</dt><dd>김경영, 임문규</dd></div><div><dt>본사</dt><dd>경기 안양시 동안구 학의로 282 금강펜테리움 B동 1526호</dd></div><div><dt>공장</dt><dd>인천광역시 강화군 강화읍 강화산단로 189</dd></div></dl></section>
+</main>
 
 <footer class="footer simple-footer"><div class="container footer-cert-row"><div aria-label="웰콘 연락처" class="footer-contact-info">
 <div><span>사무실전화</span><a href="tel:0314631033">031-463-1033</a></div>
