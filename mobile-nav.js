@@ -199,3 +199,94 @@
     installCompanyDropdowns();
   }
 })();
+
+// A short red afterglow behind a moving mouse, independent of the cursor shape.
+(function () {
+  var enabled = window.matchMedia('(any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference)');
+  var lifetime = 240;
+  var points = [];
+  var canvas, context, frame = 0, width = 0, height = 0, ratio = 1;
+
+  function clear() {
+    points.length = 0;
+    if (frame) cancelAnimationFrame(frame);
+    frame = 0;
+    if (context) context.clearRect(0, 0, width, height);
+  }
+
+  function resize() {
+    if (!context) return;
+    clear();
+    width = window.innerWidth;
+    height = window.innerHeight;
+    ratio = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.ceil(width * ratio);
+    canvas.height = Math.ceil(height * ratio);
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  }
+
+  function render(now) {
+    frame = 0;
+    context.clearRect(0, 0, width, height);
+    while (points.length && now - points[0].time >= lifetime) points.shift();
+    if (!points.length) return;
+    context.lineCap = 'round';
+    for (var i = 1; i < points.length; i++) {
+      var a = points[i - 1], b = points[i];
+      var strength = Math.pow(Math.min(1, 1 - (now - a.time) / lifetime), 1.65);
+      context.beginPath();
+      context.moveTo(a.x, a.y);
+      context.lineTo(b.x, b.y);
+      context.lineWidth = 5 * strength;
+      context.strokeStyle = 'rgba(255, 24, 55,' + (strength * 0.18) + ')';
+      context.stroke();
+      context.lineWidth = 2 * strength;
+      context.strokeStyle = 'rgba(255, 23, 58,' + (strength * 0.9) + ')';
+      context.stroke();
+    }
+    frame = requestAnimationFrame(render);
+  }
+
+  window.addEventListener('pointermove', function (event) {
+    if (event.pointerType !== 'mouse' || !enabled.matches || !document.body) return;
+    if (event.target instanceof Element && event.target.closest('#introVideo, a[href^="tel:"]')) {
+      clear();
+      return;
+    }
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      context = canvas.getContext('2d');
+      if (!context) return;
+      canvas.setAttribute('aria-hidden', 'true');
+      canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9998;';
+      document.body.appendChild(canvas);
+      resize();
+    }
+    if (!context) return;
+    var now = performance.now();
+    var previous = points[points.length - 1];
+    if (previous && (now - previous.time > 100 ||
+        Math.hypot(event.clientX - previous.x, event.clientY - previous.y) > 300)) points.length = 0;
+    points.push({ x: event.clientX, y: event.clientY, time: now });
+    if (points.length > 32) points.shift();
+    if (!frame) frame = requestAnimationFrame(render);
+  }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', clear);
+  document.addEventListener('visibilitychange', clear);
+  window.addEventListener('blur', clear);
+  window.addEventListener('resize', resize, { passive: true });
+  if (enabled.addEventListener) enabled.addEventListener('change', clear);
+})();
+
+// Use the WELLCON mark as the native cursor.
+(function () {
+  if (document.getElementById('wellcon-red-cursor')) return;
+  var logo = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAFlUlEQVR4nM2XXWxc1RHH/zPn7vU3jg1xEghr9iNO9q6toNqV2kIbEEpFAJVKJUg0Sh9oQQgeIgUEQa0SRVE/VLUSCCLx0CJeCB+makECESGIaEA84CAlJLv58G6yJjh21l5iee3seu+Z6YN3g7OsnU15gHm60p0zv5k5Z87MAb4joXqUFGACBACyYW+Hw7StqNLlEmUBPNM5nPhLtd6VhOuF7gL4q2jvKwxs91VPNJMhX5BUwfapaHwfACJAtA6bwBUiVmw2hEE77nmt7hwNOqDYlOpPA9CGZuJThRJihUAh304Nn4ho+kyLc9fNR47MVNb9XxErMA/t9lYGinivjfnOnC1uXZ069gWrXVZUBZFtv3F4+OyYFn/AoLbgjD80FupdQRi0is3mqsEKOATYbE/vOhj91GX+0aT1/RZjSrsAViIhAMrG7gK4Z3g4e3I2d6sBjzgsn58NreuZh8OpG1yG+l+Ge24JiH4G4N0psb80IMeKMburDs/u8v4PnDs32546usmA9jezOTwWWfdjAvzF4AvBdKAMHQ3H7upkd7+v+tKKdPIho5K20G/umSoBwCPh8HXZtWvbAEhH6thWX2VvI5mPspHYvYvBL4EV4NsBfzLiPdRpnLeF0ELQvQoQEdpqee2rMAAQN6831rx1MhpdDgBd6eQTJdUnm5j/k414D5fhl+35JTABdiLq7STQc3mRD0qqCug1BKgSLV2b6uebydy2XN33MsG+MAAsTyX+nre6pZH4hYmwt5OAyzJ2CXw+HPtbALTDF9k4y85vHCJSvgKw4rQaviC+dZnXtwfk/dHw2gEAWJlO7JsRu7GRacdYOPanmuAG5sfzor/rOp082Dg312VV62EuMERmWsQy4aYmcvZPROM/fx0wK9PJ9/Nit7Qa83RNcFHVbxI9qwALmyWLf3E4zEUR3xA6fZF//WxNX7cCbAgjc6pSpfv1txDceu/aRYXIXFRVJmrmkr+aALFCHVRVupcdcyVcXX4XYwPEANTgtfFwLEdAV2mJiBd6rYpv54QCUEWegCmAplHVFy4DW9X5urTWOAA5xFeddgJUAFWASPnXXenkTxS0NUBUG0yAMKigAAcMcgXV6ZJFy9WCRVVamQmKrCNO9gA2OBZUlKoMfl1ORI4SRQiQjnTiiznWe2BKYwCgRHWlXaC2ldmZE/mSWX6xLHM4czs+9AOQHrcq4kuHq6D6V5fpxYmol6fhxBs4lfxv5Z/6LGBZMu0K+O1snItiE1O++VUokzgOABMh775Gwy/PiN1TM+KuVOKpgurv28gMZiPrHgMA7e8PaPlQuMSBRaFEsoyNUxA9OOXTHaHM0eMAkIvGH21zzOCs2D+sSCV31gQrNptVqcSfc77/2xZ2np+MeHvo0KESAWqaNDmn+m+FNNYki23Jq31zzPHvDmUSYwAwGfH2NBHtvWDtg12p5B+rm0RVujY4ADAajm2ajsZLkxHvn5V/Rz3PzQT7OgBgfI1382QkrqOh+A8BIBMMdpyMRhsqurmI94/paLw0Go5tWmh3San0ztHw2oHpSHwqF4m/UzFaGeTGu+fB2XDvAAC8Xo7mQHd340TEezsfiU+NlJ1aDPqNC6TSuK9PnxgaVxkwrH3Xwv14xPM6a02RCvD9gB1Z7XWuD7QcdIn7ctD+4Oljn85PMx/6dYEr8AOAE00nT83aQr9RBNrnMHQm2BMiQMgRVgC+WEOAnAn2hK5poCEG3PPCA8FUYnh+WERNaJmxuJQX26FVq5pDzR1vuUT9RegtxZIv7QE3Oa22V9mXVnU/KUE/K8w03XPDuUOzlXVL2b7iS2LB64Amwt6rDtG9JeipRuLeiypHXdAaX/XN59KJB3aXt6KeDlfvE4aofOVlo7FHSGmbAt0EZJT02eXDyReq9b638j+N05SPNlsnYAAAAABJRU5ErkJggg==';
+  var style = document.createElement('style');
+  style.id = 'wellcon-red-cursor';
+  style.textContent = '@media (hover: hover) and (pointer: fine) {' +
+    'body, body *:not(#introVideo, #introVideo *, input, textarea, [contenteditable], [contenteditable] *) {' +
+    'cursor:url("' + logo + '") 15 15, auto !important;' +
+    '}}';
+  document.head.appendChild(style);
+})();
