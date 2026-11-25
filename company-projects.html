@@ -783,17 +783,65 @@ main.concept-b > section.cp-history .cp-history-current .cp-history-date {
   to { opacity: 1; transform: scaleY(1); }
 }
 </style>
-<style>
-.cp-project-sheet { position: relative; }
-.cp-project-sheet > i {
-  position: absolute;
-  top: var(--mark-top);
-  left: 84.5%;
-  width: 9.7%;
-  height: 1.85%;
-  background: #eeece8;
-  pointer-events: none;
+<style id="wellcon-project-references">
+.wc-project-references { padding-block: clamp(32px, 5vw, 76px); }
+.wc-project-panel {
+  display: grid;
+  position: relative;
+  isolation: isolate;
+  gap: 0 1.7%;
+  align-items: stretch;
+  background: #eceae6;
+  color: #202322;
+  padding: 5.5% 2% 1.5%;
 }
+.wc-project-panel::before {
+  content: "";
+  position: absolute;
+  inset: 61% 0 0;
+  z-index: -1;
+  background: center / cover no-repeat var(--wc-project-photo);
+}
+.wc-project-first {
+  --wc-project-photo: url("assets/company-profile/project-backdrop-1.webp");
+  grid-template-columns: 36% 1fr;
+  padding-inline: 5.4%;
+  gap: 4%;
+}
+.wc-project-part-2 { --wc-project-photo: url("assets/company-profile/project-backdrop-2.webp"); }
+.wc-project-part-3 { --wc-project-photo: url("assets/company-profile/project-backdrop-3.webp"); }
+.wc-project-continuation { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.wc-project-intro { padding-right: 13%; }
+.wc-project-kicker {
+  color: #536c80;
+  font-size: 12px;
+  letter-spacing: .11em;
+  margin: 0 0 12px;
+}
+.wc-project-continuation > .wc-project-kicker { grid-column: 1 / -1; padding-left: 3.5%; }
+.wc-project-intro h1 { margin: 0 0 .35em; font-size: clamp(34px, 5.2vw, 68px); line-height: 1.12; letter-spacing: -.06em; }
+.wc-project-intro > p:last-child { font-size: 14px; line-height: 1.75; color: #454745; }
+.wc-project-table { overflow-x: auto; min-width: 0; padding: 7px 10px; background: rgba(250,249,247,.84); }
+.wc-project-table:focus-visible { outline: 2px solid #ea232a; outline-offset: -2px; }
+.wc-project-first .wc-project-table { margin-top: 4%; padding: 3.5% 5%; }
+.wc-project-table h2 { margin: 0 0 12px; font-size: clamp(17px, 2vw, 22px); line-height: 1.35; }
+.wc-project-table h2::before { content: ""; width: .48em; height: .48em; border: solid #627e94; border-width: 3px 3px 0 0; transform: rotate(45deg); display: inline-block; margin-right: .6em; vertical-align: .09em; }
+.wc-project-table table { width: 100%; min-width: 390px; table-layout: fixed; border-collapse: collapse; border-top: 2px solid #b5a48d; font-size: clamp(12px, 1.08vw, 15px); line-height: 1.35; }
+.wc-project-table col:nth-child(1), .wc-project-table col:nth-child(4) { width: 12%; }
+.wc-project-table col:nth-child(2) { width: 22%; }
+.wc-project-table col:nth-child(3) { width: 32%; }
+.wc-project-table col:nth-child(5) { width: 22%; }
+.wc-project-table :is(th,td) { text-align: center; padding: 8px 4px; font-weight: 600; color: #292c2b; border-bottom: 1px solid rgba(87,81,73,.2); border-right: 1px solid rgba(87,81,73,.18); overflow-wrap: anywhere; word-break: keep-all; }
+.wc-project-table :is(th,td):last-child { border-right: 0; }
+.wc-project-table tr:last-child td { border-bottom: 0; }
+.wc-project-table th { background: #ebe9e4; font-weight: 700; }
+@media (max-width: 980px) {
+  .wc-project-panel { grid-template-columns: minmax(0,1fr); gap: 12px; padding: 26px 3% 15px; }
+  .wc-project-first .wc-project-table { margin: 0; padding: 10px; }
+  .wc-project-intro { padding-right: 0; }
+  .wc-project-continuation > .wc-project-kicker { padding-left: 0; margin-bottom: 0; }
+}
+@media (max-width: 480px) { .wc-project-references { width: calc(100% - 22px); } }
 </style>
 <style id="company-footer-layout">
 html { background: #fff; }
@@ -898,7 +946,82 @@ body > footer.simple-footer { flex: 0 0 auto; }
 
 <main class="concept-b">
 <nav class="cp-page-nav" aria-label="회사소개 페이지"><ul><li><a href="company.html">회사소개</a></li><li><a href="company-history.html">회사 연혁</a></li><li><a href="company-business.html">사업 부문</a></li><li><a href="company-organization.html">회사 조직도</a></li><li><a href="company-facilities.html">공장 설비 시설</a></li><li><a href="company-certifications.html">특허증</a></li><li><a href="company-design-registrations.html">디자인등록증</a></li><li><a href="company-projects.html" aria-current="page">공사실적</a></li></ul></nav>
-<section class="cp-section"><div class="cp-project-sheet"><img src="assets/company-profile/projects-combined.webp" width="2000" height="3375" alt="웰콘 공사실적 목록 전체" loading="lazy" style="width:100%;height:auto!important;max-height:none!important;object-fit:contain!important;cursor:default"><i aria-hidden="true" style="--mark-top:2.519%"></i><i aria-hidden="true" style="--mark-top:35.852%"></i><i aria-hidden="true" style="--mark-top:69.185%"></i></div></section>
+<section class="cp-section wc-project-references" aria-label="웰콘 공사실적">
+  <div class="wc-project-panel wc-project-first">
+    <div class="wc-project-intro"><p class="wc-project-kicker">PROJECT REFERENCES</p><h1>공사실적</h1>
+      <p>주식회사 웰콘은 다양한 현장에서의 풍부한 경험과 축적된 기술력을 통해, 고객이 신뢰할 수 있는 최적의 제품을 제공합니다.<br>수많은 프로젝트를 성공적으로 수행하며 쌓아온 성과는 우리의 전문성과 책임경영을 증명합니다.</p>
+    </div>
+<div class="wc-project-table" tabindex="0" role="region" aria-label="2024년 공사실적"><h2>최근 3년 처리실적 현황</h2>
+<table aria-label="2024년 공사실적"><colgroup><col><col><col><col><col></colgroup><thead><tr><th scope="col">NO</th><th scope="col">시행처</th><th scope="col">현장명</th><th scope="col">시공사</th><th scope="col">품목</th></tr></thead><tbody>
+<tr><td>2024</td><td>인천광역시 종합건설본부</td><td>교산천 수해상습지 개선사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2024</td><td>충청남도 청양군</td><td>온직천 개선복구사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2024</td><td>경상남도 거제시</td><td>아주천 생태하천 복원사업</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2024</td><td>환경부 낙동강유역환경청</td><td>합천지구 관급 구매</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2024</td><td>경상남도 거제시</td><td>고현천상류부 하천재해예방사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2024</td><td>인천광역시 강화군 화개정원사업</td><td>화개정원 제2공영주차장 조성사업</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2024</td><td>울산지방해양수산청</td><td>울산항 항만시설물 안전시설 정비공사</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2024</td><td>대전광역시</td><td>평촌일반산업단지 지원도로 개설공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2024</td><td>인천광역시 강화군</td><td>어린이 보호구역 방호울타리 설치작업</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2024</td><td>한국토지주택공사 파주사업본부</td><td>지방도358호선(김포~관산간) 도로</td><td>관급</td><td>교량난간</td></tr>
+</tbody></table></div>
+  </div>
+  <div class="wc-project-panel wc-project-continuation wc-project-part-2">
+    <p class="wc-project-kicker">PROJECT REFERENCES</p>
+<div class="wc-project-table" tabindex="0" role="region" aria-label="공사실적 목록 2">
+<table aria-label="공사실적 목록 2"><colgroup><col><col><col><col><col></colgroup><thead><tr><th scope="col">NO</th><th scope="col">시행처</th><th scope="col">현장명</th><th scope="col">시공사</th><th scope="col">품목</th></tr></thead><tbody>
+<tr><td>2024</td><td>군산지방해양수산청</td><td>항만시설물 안전시설 정비공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2024</td><td>경기주택도시공사</td><td>안양 관양고 주변 도시개발사업 부지조성공사</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2024</td><td>경기도 성남시 분당구</td><td>지천 교량 정밀안전진단 결과 보수보강공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2024</td><td>인천도시공사</td><td>검단 도시시설물(3-1공구) 교량 공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>충청남도 서산시</td><td>와우천 정비사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>부산광역시 해운대구</td><td>어린이보호구역 내 차량방호책 설치</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2025</td><td>대전광역시 유성구</td><td>세동천 무명3교 설치 공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>경기도 고양시</td><td>서정1교 시설물개선공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>경기도 남양주시</td><td>퇴계원초 통학로 확장공사</td><td>관급</td><td>디자인형울타리</td></tr>
+</tbody></table></div>
+<div class="wc-project-table" tabindex="0" role="region" aria-label="공사실적 목록 3">
+<table aria-label="공사실적 목록 3"><colgroup><col><col><col><col><col></colgroup><thead><tr><th scope="col">NO</th><th scope="col">시행처</th><th scope="col">현장명</th><th scope="col">시공사</th><th scope="col">품목</th></tr></thead><tbody>
+<tr><td>2025</td><td>경상남도 거제시 장승포동</td><td>장승포 해맞이공원 포장 및 환경 개선공사</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2025</td><td>경기도건설본부</td><td>양평 지방도 교량난간 교체공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>서울특별시 도로사업소 성동도로사업소</td><td>2025년 교량 및 고가차도 일상유지보수공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>충청남도 서산시</td><td>고파도 능선샛길 복원사업</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2025</td><td>목포지방해양수산청</td><td>초평항 건설공사 5차 관급자재</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>인천광역시 옹진군</td><td>십리포해수욕장 보행로 개선사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>경기도 안양시 동안구</td><td>평촌중앙공원 옆 육교 정비공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>인천도시공사</td><td>인천검단지구 도시시설물 (3-1)교량공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>부산해운대구</td><td>어린이보호구역 내 차량용방호책 설치 (신도초)</td><td>관급</td><td>교량난간</td></tr>
+</tbody></table></div>
+  </div>
+  <div class="wc-project-panel wc-project-continuation wc-project-part-3">
+    <p class="wc-project-kicker">PROJECT REFERENCES</p>
+<div class="wc-project-table" tabindex="0" role="region" aria-label="공사실적 목록 4">
+<table aria-label="공사실적 목록 4"><colgroup><col><col><col><col><col></colgroup><thead><tr><th scope="col">NO</th><th scope="col">시행처</th><th scope="col">현장명</th><th scope="col">시공사</th><th scope="col">품목</th></tr></thead><tbody>
+<tr><td>2025</td><td>인천광역시 중구</td><td>중산중학교 일원 무단횡단금지시설 구입</td><td>관급</td><td>차선분리대</td></tr>
+<tr><td>2025</td><td>서울특별시 용산구</td><td>2025년 관내 도로시설물 유지보수</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>서울특별시 도봉구</td><td>보행자 방호울타리 구매</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2025</td><td>경기도 성남시</td><td>돌마교 보수 보강 및 보도교 신설공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2025</td><td>인천광역시 중구</td><td>중산중학교 일원 무단횡단금지시설 구입</td><td>관급</td><td>차선분리대</td></tr>
+<tr><td>2025</td><td>서울특별시 용산구</td><td>2025년 관내 도로시설물 유지보수</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>한국토지주택공사 경기지역본부</td><td>오산세교2 조성공사(3공구) 및 도시시설물공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>경상남도 거제시</td><td>고현초등학교 어린이보호구역 내 안전휀스 설치</td><td>관급</td><td>금속제기타울타리</td></tr>
+<tr><td>2026</td><td>경기도 양주시</td><td>국담교 교량난간 구매 설치</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>경기도건설본부</td><td>매산교 등 9개소 보수공사</td><td>관급</td><td>교량난간</td></tr>
+</tbody></table></div>
+<div class="wc-project-table" tabindex="0" role="region" aria-label="공사실적 목록 5">
+<table aria-label="공사실적 목록 5"><colgroup><col><col><col><col><col></colgroup><thead><tr><th scope="col">NO</th><th scope="col">시행처</th><th scope="col">현장명</th><th scope="col">시공사</th><th scope="col">품목</th></tr></thead><tbody>
+<tr><td>2026</td><td>인천광역시 종합건설본부</td><td>교산천 수해상습지 개선사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>목포해양수산청</td><td>목포남항 투기장 환경개선사업</td><td>관급</td><td>금속제기타울타리</td></tr>
+<tr><td>2026</td><td>경기도 김포시</td><td>염하강 경계철책 철거사업</td><td>관급</td><td>금속제기타울타리</td></tr>
+<tr><td>2026</td><td>경상북도 봉화군</td><td>살래천지구 지구단위 종합복구사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>한국토지주택공사 경기남부지역본부</td><td>시흥거모 조성공사</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>경상북도 봉화군</td><td>청소년문화체험장 연계활성화 사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>제주특별자치도 제주시</td><td>삼수천 지방하천 정비사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>목포지방해양수산청</td><td>목포북항 국가어업지도선부두 확장공사</td><td>관급</td><td>디자인형울타리</td></tr>
+<tr><td>2026</td><td>경상북도 상주시</td><td>공성(옥산) 자연재해위험개선지구 정비사업</td><td>관급</td><td>교량난간</td></tr>
+<tr><td>2026</td><td>경기도 수원시 팔달구</td><td>수원천 석축정비 공사</td><td>관급</td><td>금속제기타울타리</td></tr>
+</tbody></table></div>
+  </div>
+</section>
 </main>
 
 <footer class="footer simple-footer"><div class="container footer-cert-row"><div aria-label="웰콘 연락처" class="footer-contact-info">
