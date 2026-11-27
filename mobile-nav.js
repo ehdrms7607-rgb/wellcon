@@ -376,3 +376,52 @@
     }, 160));
   }, true);
 })();
+
+/* Enlarge the product card photo in the catalog's existing image viewer. */
+(function () {
+  var catalogPages = /\/(?:bridge-railing|design-fence|bar-fence|metal-other-fence|lane-divider|aluminum-median-barrier|expansion-joint)\.html$/i;
+  if (!catalogPages.test(location.pathname)) return;
+
+  document.addEventListener('click', function (event) {
+    var image = event.target;
+    if (!image || !image.matches || !image.matches('.catalog-grid .catalog-card img')) return;
+    var card = image.closest('.catalog-card');
+    if (!card || card.classList.contains('catalog-card--pending') || card.querySelector('img') !== image) return;
+
+    var modal = document.getElementById('installCaseModal');
+    var view = document.getElementById('installCaseImage');
+    var source = image.currentSrc || image.src;
+    if (!modal || !view || !source) return;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    var heading = card.querySelector('h3');
+    var name = (heading && heading.textContent.trim()) || image.alt || '제품';
+    var title = document.getElementById('installCaseTitle');
+    var caption = document.getElementById('installCaseCaption');
+    var note = document.getElementById('installCaseNote');
+
+    if (title) title.textContent = '제품 이미지';
+    [caption, note].forEach(function (label) {
+      if (!label) return;
+      label.textContent = '';
+      label.hidden = true;
+      label.style.display = 'none';
+    });
+    ['installCasePrev', 'installCaseNext'].forEach(function (id) {
+      var button = document.getElementById(id);
+      if (button) button.style.display = 'none';
+    });
+    view.src = source;
+    view.alt = name + ' 제품 이미지';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }, true);
+
+  window.addEventListener('load', function () {
+    document.querySelectorAll('.catalog-grid .catalog-card img[title="클릭하여 시공사례 보기"]').forEach(function (image) {
+      image.title = '클릭하여 제품 이미지 확대';
+    });
+  }, { once: true });
+})();
