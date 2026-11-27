@@ -619,10 +619,11 @@ footer a,.site-footer a{
 }
 </style>
 <script defer src="wellcon-boundary.js"></script>
-<style id="intro-skip-cursor">
+<style id="intro-skip-button">
 #introVideo #introSkip {
-  position: absolute;
-  inset: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) auto auto;
+  position: static;
+  pointer-events: auto;
+  cursor: pointer;
   z-index: 3;
   display: grid;
   place-items: center;
@@ -650,11 +651,6 @@ footer a,.site-footer a{
 #introVideo #introSkip:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 4px;
-}
-#introVideo #introSkip.is-following:not(:focus-visible) {
-  inset: 0 auto auto 0;
-  transform: translate3d(calc(var(--skip-x) - 50%), calc(var(--skip-y) - 50%), 0);
-  will-change: transform;
 }
 @media (max-width: 640px) {
   #introVideo #introSkip { width: 48px !important; height: 48px !important; }
@@ -702,9 +698,19 @@ footer a,.site-footer a{
 #introVideo .intro-cover-controls {
   position: absolute;
   bottom: max(13%, calc(env(safe-area-inset-bottom) + 30px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  pointer-events: none;
+  text-align: center;
+}
+#introVideo .intro-play-group {
   display: grid;
   justify-items: center;
-  gap: 14px;
+  gap: 8px;
 }
 #introVideo #introPlay {
   display: grid;
@@ -722,15 +728,10 @@ footer a,.site-footer a{
 }
 #introVideo #introPlay:is(:hover,:focus-visible) { background: #fff; color: #111; }
 #introVideo #introPlay:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+#introVideo.is-playing .intro-play-group { visibility: hidden; }
 #introVideo.is-playing #introPlay { pointer-events: none; }
 #introVideo .intro-cover-controls p { margin: 0; color: #dedede; font-size: 13px; letter-spacing: .08em; }
 #introVideo:not(.is-playing) .intro-progress { opacity: 0; }
-#introVideo #introSkip:not(.is-following) {
-  inset: auto max(20px, env(safe-area-inset-right)) max(25px, calc(env(safe-area-inset-bottom) + 10px)) auto;
-}
-#introVideo #introSkip.is-following:focus-visible {
-  inset: auto max(20px, env(safe-area-inset-right)) max(25px, calc(env(safe-area-inset-bottom) + 10px)) auto;
-}
 @media (max-width: 640px) {
   #introVideo #introVideoPlayer { clip-path: inset(13% 23% 13%); }
   #introVideo #introPlay { width: 56px; height: 56px; }
@@ -769,14 +770,16 @@ body.home-landing main.concept-b > section.b-hero::before {
   </video>
   <div class="intro-cover">
     <div class="intro-wordmark">WELLCON</div>
-    <div class="intro-cover-controls">
+  </div>
+  <div class="intro-cover-controls">
+    <div class="intro-play-group">
       <button id="introPlay" type="button" aria-label="웰콘 인트로 영상 재생">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><path d="M6 3.5v13l11-6.5z" fill="currentColor"/></svg>
       </button>
       <p id="introPlayHint" aria-live="polite">웰콘 영상 보기</p>
     </div>
+    <button class="intro-skip" id="introSkip" type="button" aria-label="인트로 영상 건너뛰기">SKIP</button>
   </div>
-  <button class="intro-skip" id="introSkip" type="button" aria-label="인트로 영상 건너뛰기">SKIP</button>
   <div class="intro-progress" aria-hidden="true"><span id="introProgressBar"></span></div>
 </div>
 <header class="site-header">
@@ -1039,33 +1042,6 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
 
-    const followSkip=window.matchMedia('(any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference)');
-    let skipFrame=0, pointerX=0, pointerY=0;
-    const stopFollowing=()=>{
-      if(skipFrame) window.cancelAnimationFrame(skipFrame);
-      skipFrame=0;
-      skip.classList.remove('is-following');
-    };
-    const paintSkip=()=>{
-      skipFrame=0;
-      if(intro.classList.contains('is-hidden') || skip.matches(':focus-visible')) return;
-      const bounds=intro.getBoundingClientRect();
-      skip.style.setProperty('--skip-x',(pointerX-bounds.left)+'px');
-      skip.style.setProperty('--skip-y',(pointerY-bounds.top)+'px');
-      skip.classList.add('is-following');
-    };
-    intro.addEventListener('pointermove',(event)=>{
-      if(!intro.classList.contains('is-playing') || !followSkip.matches || event.pointerType!=='mouse' || skip.matches(':focus-visible')) return;
-      pointerX=event.clientX;
-      pointerY=event.clientY;
-      if(!skipFrame) skipFrame=window.requestAnimationFrame(paintSkip);
-    },{passive:true});
-    intro.addEventListener('pointerleave',stopFollowing);
-    intro.addEventListener('pointerdown',(event)=>{
-      if(event.pointerType!=='mouse') stopFollowing();
-    });
-    window.addEventListener('resize',stopFollowing);
-    followSkip.addEventListener?.('change',stopFollowing);
     skip.addEventListener('click',()=>closeIntro(true));
     video.addEventListener('ended',()=>closeIntro(true));
     video.addEventListener('error',()=>closeIntro(false));
